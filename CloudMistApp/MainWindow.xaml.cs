@@ -24,5 +24,10 @@ namespace CloudMistApp
         {
             InitializeComponent();
         }
+
+        private void lbl_login_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
