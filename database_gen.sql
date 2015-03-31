@@ -1,6 +1,13 @@
 CREATE DATABASE cloud_mist;
 USE cloud_mist;
 
+DROP TABLE IF EXISTS company;
+CREATE TABLE company (	c_name VARCHAR(30),
+						location VARCHAR(30),
+						status VARCHAR(10),
+						PRIMARY KEY (c_name)
+					 );
+
 DROP TABLE IF EXISTS game;
 CREATE TABLE game ( game_id INT, 
 					name VARCHAR(100), 
@@ -15,13 +22,13 @@ CREATE TABLE game ( game_id INT,
 					PRIMARY KEY (game_id),
 					FOREIGN KEY (c_name) REFERENCES company (c_name)
 				  );
+				  
+DROP TABLE IF EXISTS admins;
+CREATE TABLE admins (	a_user VARCHAR(20),
+						password VARCHAR(20),
+						PRIMARY KEY (a_user)
+					 );				  
 
-DROP TABLE IF EXISTS company;
-CREATE TABLE company (	c_name VARCHAR(30),
-						location VARCHAR(30),
-						status VARCHAR(10),
-						PRIMARY KEY (c_name)
-					 );
 					 
 DROP TABLE IF EXISTS banned_company;
 CREATE TABLE banned_company (	a_user VARCHAR(20),
@@ -30,12 +37,7 @@ CREATE TABLE banned_company (	a_user VARCHAR(20),
 							FOREIGN KEY (a_user) REFERENCES admins (a_user),
 							FOREIGN KEY (c_name) REFERENCES company (c_name)
 						);
-					 
-DROP TABLE IF EXISTS admins;
-CREATE TABLE admins (	a_user VARCHAR(20),
-						password VARCHAR(20),
-						PRIMARY KEY (a_user)
-					 );
+
 
 DROP TABLE IF EXISTS news_item;
 CREATE TABLE news_item (	article_no int,
@@ -72,8 +74,8 @@ DROP TABLE IF EXISTS game_list;
 CREATE TABLE game_list (	g_user VARCHAR(20),
 							game_id INT, 
 							PRIMARY KEY(g_user, game_id),
-							FOREIGN KEY (g_user) REFERENCES gamer(g_user)
-							FOREIGN KEY (game_id) REFERENCES game(game_id),
+							FOREIGN KEY (g_user) REFERENCES gamer(g_user),
+							FOREIGN KEY (game_id) REFERENCES game(game_id)
 						);
 						
 DROP TABLE IF EXISTS gamer_banned;
@@ -81,16 +83,22 @@ CREATE TABLE gamer_banned (	a_user VARCHAR(20),
 							g_user VARCHAR(20),
 							PRIMARY KEY (a_user, g_user),
 							FOREIGN KEY (a_user) REFERENCES admins (a_user),
-							FOREIGN KEY (g_user) REFERENCES company (g_user)
+							FOREIGN KEY (g_user) REFERENCES gamer (g_user)
 						);
 
 DROP TABLE IF EXISTS payment_info;
 CREATE TABLE payment_info (	credit_card VARCHAR(20),
 							billing_address VARCHAR(100),
 							g_user VARCHAR(20),
-							PRIMARY KEY (credit_card, g_user);
+							PRIMARY KEY (credit_card, g_user),
 							FOREIGN KEY (g_user) REFERENCES gamer (g_user)
 							);
+							
+DROP TABLE IF EXISTS game_reviewer;
+CREATE TABLE game_reviewer (	r_user VARCHAR(20),
+								password VARCHAR(20),
+								PRIMARY KEY (r_user)
+							);	
 
 DROP TABLE IF EXISTS review;
 CREATE TABLE review (	review_no int,
@@ -103,14 +111,11 @@ CREATE TABLE review (	review_no int,
 						FOREIGN KEY (r_user) REFERENCES game_reviewer (r_user)
 					);
 
-DROP TABLE IF EXISTS game_reviewer;
-CREATE TABLE game_reviewer (	r_user VARCHAR(20),
-								password VARCHAR(20)
-								PRIMARY KEY (r_user),
-							);					
+			
 
 
---INSERT INTO employees (id, first_name, last_name) VALUES (1, 'John', 'Doe');
---SELECT * FROM employees;
-
+/*
+INSERT INTO employees (id, first_name, last_name) VALUES (1, 'John', 'Doe');
+SELECT * FROM employees;
+*/
 
