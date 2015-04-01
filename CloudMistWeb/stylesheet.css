@@ -1,6 +1,6 @@
 h1{
 	font-size:20pt;
-	font-family: 'PT Sans', sans-serif;	color:#fff;
+	font-family: 'PT Sans', sans-serif;	color:#000;
 }
 body { 
 	background-color:#fff;
@@ -25,6 +25,14 @@ a{
 #content{
 	margin-left:200px;
 }
+
+#gameList{
+    border: 5px solid black;
+}
+#gameList th, #gameList tr, #gameList td {
+    border: 1px solid black;
+}
+
 #sidebar{
 	position:absolute;
 	top:0; bottom:0; left:0;
