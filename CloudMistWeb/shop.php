@@ -3,20 +3,10 @@ CPSC471
 -->
 <?php
     function filldiv() {
-        $dbhost = 'localhost';
-        $dbuser = 'user';
-        $dbpass = 'root';
-
-        //create connection
-        $conn = new mysqli($dbhost, $dbuser, $dbpass, "cloud_mist");
-
-        //Check connection
-        if($conn->connect_errno) {
-            die("Connection failed: " . $conn -> connect_errno);
-        }
-
+        require_once 'connect.php';
+        
         $sql_request = "SELECT name, description, price, genre, release_date FROM game";
-        $result = $conn ->query($sql_request);
+        $result = mysqli_query($conn, $sql_request);
 
         if($result->num_rows > 0) {
             echo '<table id="gameList"><tr>'
