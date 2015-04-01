@@ -15,6 +15,7 @@ CPSC471
                     . '<th>PRICE</th>'
                     . '<th>GENRE</th>'
                     . '<th>RELEASE DATE</th>'
+                    . '<th>DOWNLOAD</th>'
                 . '</tr>';
 
             //output data
@@ -23,7 +24,9 @@ CPSC471
                        . "<td>".$row["description"]."</td>"
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
-                       . "<td>".$row["release_date"]."</td></tr>";
+                       . "<td>".$row["release_date"]."</td>"
+                       . "<td></td>"
+                    . "</tr>";
             }
             echo "</table>";
         }
