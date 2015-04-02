@@ -1,14 +1,22 @@
 <?php
-       $dbhost = 'localhost';
-        $dbuser = 'user';
-        $dbpass = 'root';
+        $user = 'root';
+        $password = 'root';
+        $db = 'cloud_mist';
+        $host = 'localhost';
+        $port = 3306;
 
-        //create connection
-        $conn = new mysqli($dbhost, $dbuser, $dbpass, "cloud_mist");
+        $link = mysqli_init();
+        $success = mysqli_real_connect(
+           $link, 
+           $host, 
+           $user, 
+           $password, 
+           $db,
+           $port
+        );
 
         //Check connection
-        if($conn->connect_errno) {
-            die("Connection failed: " . $conn -> connect_errno);
+        if(! $success) {
+            die("Connection failed: " . mysql_error());
         }
-
-?>
+;?>

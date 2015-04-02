@@ -13,10 +13,10 @@ CPSC471
     <div class="container">
         <div id="sidebar">
             <ul id="sideButton">
-                <li><a href="#">PROFILE</a></li>
-                <li><a href="#">GAMELIST</a></li>
-                <li><a href="#">SHOP</a></li>
-                <li><a href="#">FRIENDS</a></li>
+                <li><a href="profile.php">PROFILE</a></li>
+                <li><a href="gamelist.php">GAME LIST</a></li>
+                <li><a href="shop.php">SHOP</a></li>
+                <li><a href="friends.php">FRIENDS</a></li>
             </ul>
         </div>
         <div id="content">
