@@ -22,6 +22,27 @@ CPSC471
             $query = "SELECT * FROM gamer WHERE password='$curPassword'";
 
             $result = mysqli_query($con,$query) or die(mysqli_error());
+            
+            if ($result == $curPassword && $newPassword == $conPassword)
+            {
+                $query = "UPDATE gamer SET password='$newPassword'";
+                
+                $result = mysqli_query($con, $query) or die(mysqli_error());
+            }
+        }
+        
+        if (isset($_POST['cc_change']))
+        {
+            $ccChange = $_POST['cc_change'];
+            
+            $query = "UPDATE payment_info SET credit_card='$ccChange'";  
+        }
+        
+        if (isset($_POST['adrs_change']))
+        {
+            $adrsChange = $_POST['adrs_change'];  
+            
+            $query = "UPDATE payment_info SET billing_address='$adrsChange'";
         }
 		
 	?>
