@@ -13,52 +13,18 @@ CPSC471
 
 	<?php
 
-		//3. If the form is submitted or not.
-        //3.1 If the form is submitted
-        if (isset($_POST['usr_change']))
+        if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
-            //3.1.1 Assigning posted values to variables.
-            $usr = $_POST['usr_change'];
+            $curPassword = $_POST['cur_password'];
+            $newPassword = $_POST['new_password'];
+            $conPassword = $_POST['con_password'];
 			
-            //3.1.2 Checking the values are existing in the database or not
-            $query = "SELECT * FROM gamer WHERE g_user='$usr'";
+            $query = "SELECT * FROM gamer WHERE password='$curPassword'";
 
             $result = mysqli_query($con,$query) or die(mysqli_error());
-            $count = mysqli_num_rows($result);
-            
-            //3.1.2 If the posted values are equal to the database values, then session will be created for the user.
-            if ($count == 1){
-                $_SESSION['g_user'] = $usr;
-            } else{
-                //3.1.3 If the login credentials doesn't match, he will be shown with an error message.
-                echo "Invalid Login Credentials.";
-            }
         }
 		
-		
-		//3. If the form is submitted or not.
-        //3.1 If the form is submitted
-        if (isset($_POST['pw_change']))
-        {
-            //3.1.1 Assigning posted values to variables.
-            $pw = $_POST['pw_change'];
-			
-            //3.1.2 Checking the values are existing in the database or not
-            $query = "SELECT * FROM gamer WHERE password='$pw'";
-
-            $result = mysqli_query($con,$query) or die(mysqli_error());
-            $count = mysqli_num_rows($result);
-            
-            //3.1.2 If the posted values are equal to the database values, then session will be created for the user.
-            if ($count == 1){
-                $_SESSION['password'] = $pw;
-            } else{
-                //3.1.3 If the login credentials doesn't match, he will be shown with an error message.
-                echo "Invalid Login Credentials.";
-            }
-        }
-
-		?>
+	?>
 
 
     <div class="container">
@@ -82,44 +48,59 @@ CPSC471
 		
 		
         <div id="content">
-            <h3>TEST</h3>
+            <h3>Change Password</h3>
             <form method="post" action="index.php" >
-			<table border="0" >
+            
+            <table border="0" >
             <tr>
             <td>
-            <b>Username</b>
+            <b>Current Password</b>
             </td>
-            <td><input type="text" name="usr_change">
+            <td><input type="text" name="cur_password">
             </tr>
+            
             <tr>
             <td>
-            <b>Password</b>
+            <b>New Password</b>
             </td>
-            <td><input type="text" name="pw_change">
+            <td><input type="text" name="new_password">
             </tr>
-			<br/>
+            
+            <tr>
+            <td>
+            <b>Confirm Password</b>
+            </td>
+            <td><input type="text" name="con_password">
+            </tr>
+            
+            <br/>
+            
             <tr>
             <td><input type="submit" value="Update"/>
             </tr>
         </table>
+                
         </form>
 			
-			<h3>TEST</h3>
-            <form method="post" action="index.php" >
-			<table border="0" >
+            <h3>Change Payment Info</h3>
+            <form method1="post" action="index.php" >
+            <table border="0" >
+                
             <tr>
             <td>
-            <b>CC</b>
+            <b>Credit Card</b>
             </td>
             <td><input type="text" name="cc_change">
             </tr>
+            
             <tr>
             <td>
             <b>Address</b>
             </td>
             <td><input type="text" name="adrs_change">
             </tr>
-			<br/>
+            
+            <br/>
             <tr>
             <td><input type="submit" value="Update"/>
             </tr>
