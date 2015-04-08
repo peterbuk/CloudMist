@@ -1,7 +1,8 @@
-<!-- 
-CPSC471
--->
+<?php
 
+    require_once 'gamer_verify.php'
+
+?>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="stylesheet.css">
@@ -10,6 +11,10 @@ CPSC471
 </head>
 
 <body>
+    <header>
+        Welcome
+    </header>
+    
     <div class="container">
         <div id="sidebar">
             <ul id="sideButton">
