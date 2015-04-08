@@ -110,12 +110,3 @@ CREATE TABLE review (	review_no int,
 						FOREIGN KEY (game_id) REFERENCES game (game_id),
 						FOREIGN KEY (r_user) REFERENCES game_reviewer (r_user)
 					);
-
-			
-
-
-/*
-INSERT INTO employees (id, first_name, last_name) VALUES (1, 'John', 'Doe');
-SELECT * FROM employees;
-*/
-
