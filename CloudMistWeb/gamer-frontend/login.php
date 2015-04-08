@@ -11,7 +11,7 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <script>
         function register_guser() {
-            location.href = "../backend/register_guser.php";
+            location.href = "register_guser.php";
         }
     </script>
 </head>
@@ -26,7 +26,7 @@
     
     <div class="mid-content">
         <h1>Log in below.</h1>
-        <form method="post" action="../backend/gamer-verify.php">
+        <form method="post" action="profile.php">
             <table class="form-field">
                 <tr>
                     <td>Username:</td>

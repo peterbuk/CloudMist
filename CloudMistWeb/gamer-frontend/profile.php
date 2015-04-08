@@ -1,8 +1,13 @@
 <?php
-
-    require_once 'gamer_verify.php'
-
+    require_once '../backend/connect.php';
+    require_once '../backend/gamer_verify.php';
+    
+    // failed to login, redirect to login page
+    if (!$logged_in) {
+        header('Location: loginerror.php');
+    }
 ?>
+
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="stylesheet.css">
