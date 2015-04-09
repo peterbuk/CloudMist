@@ -26,12 +26,30 @@ a{
 	margin-left:200px;
 }
 
+
+
+
+
 #gameList{
     border: 5px solid black;
 }
 #gameList th, #gameList tr, #gameList td {
     border: 1px solid black;
+    padding: 5px;
 }
+
+//#gameList ul {
+//    margin:0;
+//    padding: 0;
+//   list-style-type: none;
+//}
+
+ //#gameList li {
+ //   display: inline;
+//}
+
+
+
 
 #sidebar{
 	position:absolute;

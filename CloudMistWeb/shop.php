@@ -5,11 +5,12 @@ CPSC471
     function filldiv() {
         require_once 'connect.php';
         
-        $sql_request = "SELECT name, description, price, genre, release_date FROM game";
+        $sql_request = "SELECT game_id, name, description, price, genre, release_date FROM game";
         $result = mysqli_query($conn, $sql_request);
 
         if($result->num_rows > 0) {
             echo '<table id="gameList"><tr>'
+                    . '<th>ID</th>'
                     . '<th>NAME</th>'
                     . '<th>DESCRIPTION</th>'
                     . '<th>PRICE</th>'
@@ -20,15 +21,38 @@ CPSC471
 
             //output data
             while($row = $result -> fetch_assoc()) {
-                echo "<tr><td>".$row["name"]."</td>"
+                $game_id = $row["game_id"];
+                echo "<tr><td>".$row["game_id"]."</td>"
+                       . "<td>".$row["name"]."</td>"
                        . "<td>".$row["description"]."</td>"
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
                        . "<td>".$row["release_date"]."</td>"
-                       . "<td></td>"
+                       . '<td><a href="currentGame.php?game_id='.$game_id.'"> Buy now </a></td>'
                     . "</tr>";
             }
             echo "</table>";
+            /*
+            echo '<ul id="gameList">'
+                    . '<li><ul id="header">'
+                        . '<li>NAME</li>'
+                        . '<li>DESCRIPTION</li>'
+                        . '<li>PRICE</li>'
+                        . '<li>GENRE</li>'
+                        . '<li>RELEASE DATE</li>'
+                    . '</ul></li>';
+            
+            while($row = $result -> fetch_assoc()) {
+                echo '<li><ul id="gameContent">'
+                       ."<li>".$row["name"]."</li>"
+                       . "<li>".$row["description"]."</li>"
+                       . "<li>".$row["price"]."</li>"
+                       . "<li>".$row["genre"]."</li>"
+                       . "<li>".$row["release_date"]."</li>"
+                    . "</ul></li>";
+            }
+            echo "</ul>";
+            */        
         }
         else {
             echo "0 results";
