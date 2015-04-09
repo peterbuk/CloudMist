@@ -1,0 +1,103 @@
+h1 {
+    font-size: 20pt;
+    font-family: 'PT Sans', sans-serif;
+    color:#000;
+}
+
+body { 
+    background-color:#fff;
+    margin: auto;
+    width: 60%;
+}
+p{
+    font-size:12pt;
+    font-family: 'PT Sans', sans-serif;
+    color:#000;
+    width:750px;
+}
+a:hover{
+    font-size:12pt;
+    color:#6F9EE9;
+    text-decoration:none;
+	
+}
+a{
+    font-size:12pt;
+    color:#3376E1;
+    text-decoration:none;
+}
+
+#content{
+    margin-left:200px;
+}
+
+#sidebar{
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:200px;
+    height:800px;
+    background-color:#D4D4D4;
+    background-size:fill;
+	
+}
+
+#sideButton ul{
+    list-style-type: none;
+    padding:0;
+}
+
+#sideButton li{
+    list-style: none;
+    text-align: center;
+    width: 150px;
+    line-height: 60px;
+}
+
+#sideButton li:hover {
+    background-color:#fff;
+}
+
+#sideButton li a{
+    text-decoration:none;
+}
+
+.container { 
+    position: relative; 
+    padding: 0 0 0 55px; 
+}
+
+.mid-content {
+    width: 500px;
+    margin: auto;
+}
+
+
+/*
+LOGIN HEADER
+*/
+.logo {
+    font-size: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#admin-button {
+    float: right;
+    padding: 8px 12px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background: #ddd;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+/*
+    FORM ITEMS
+*/
+
+.form-field td{
+    font-family: 'PT Sans', sans-serif;
+    padding: 5px;
+    
+}

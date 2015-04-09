@@ -1,6 +1,7 @@
-<!-- 
-CPSC471
--->
+<?php
+    require_once '../backend/connect.php';
+    require_once '../backend/gamer_verify.php';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,10 @@ CPSC471
 </head>
 
 <body>
+    <header>
+        <h1>Welcome <?php printf($_SESSION['username']); ?></h1>
+    </header>
+    
     <div class="container">
         <div id="sidebar">
             <ul id="sideButton">
