@@ -8,7 +8,8 @@
 <head>
     <title>Cloud Mist - Please login</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' 
+          rel='stylesheet' type='text/css'>
     <script>
         function register_guser() {
             location.href = "register_guser.php";
