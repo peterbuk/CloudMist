@@ -1,13 +1,33 @@
 CREATE DATABASE cloud_mist;
 USE cloud_mist;
 
+
+DROP TABLE IF EXISTS admins;
+CREATE TABLE admins (	a_user VARCHAR(20),
+						password VARCHAR(20),
+						PRIMARY KEY (a_user)
+					 );		
+
 DROP TABLE IF EXISTS company;
 CREATE TABLE company (	c_name VARCHAR(30),
+						password VARCHAR(20),
 						location VARCHAR(30),
+						a_user VARCHAR(20),
 						status VARCHAR(10),
 						PRIMARY KEY (c_name)
+						FOREIGN KEY (a_user) REFERENCES admins (a_user)
 					 );
+					 
 
+
+DROP TABLE IF EXISTS news_item;
+CREATE TABLE news_item (	article_no int,
+							title VARCHAR(30),
+							content TEXT,
+							date_written DATETIME,
+							PRIMARY KEY (article_no)
+						);
+						
 DROP TABLE IF EXISTS game;
 CREATE TABLE game ( game_id INT, 
 					name VARCHAR(100), 
@@ -22,30 +42,6 @@ CREATE TABLE game ( game_id INT,
 					PRIMARY KEY (game_id),
 					FOREIGN KEY (c_name) REFERENCES company (c_name)
 				  );
-				  
-DROP TABLE IF EXISTS admins;
-CREATE TABLE admins (	a_user VARCHAR(20),
-						password VARCHAR(20),
-						PRIMARY KEY (a_user)
-					 );				  
-
-					 
-DROP TABLE IF EXISTS banned_company;
-CREATE TABLE banned_company (	a_user VARCHAR(20),
-							c_name VARCHAR(30),
-							PRIMARY KEY (a_user, c_name),
-							FOREIGN KEY (a_user) REFERENCES admins (a_user),
-							FOREIGN KEY (c_name) REFERENCES company (c_name)
-						);
-
-
-DROP TABLE IF EXISTS news_item;
-CREATE TABLE news_item (	article_no int,
-							title VARCHAR(30),
-							content TEXT,
-							date_written DATETIME,
-							PRIMARY KEY (article_no)
-						);
 
 DROP TABLE IF EXISTS blogged;
 CREATE TABLE blogged (	a_user VARCHAR(20),

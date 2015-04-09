@@ -8,7 +8,6 @@ Warning: This will clear out whatever is currently in your database!
 DELETE FROM game_list;
 DELETE FROM review;
 DELETE FROM game;
-DELETE FROM banned_company;
 DELETE FROM gamer_banned;
 DELETE FROM company;
 DELETE FROM blogged;
@@ -18,6 +17,8 @@ DELETE FROM friend_of;
 DELETE FROM payment_info;
 DELETE FROM gamer;
 DELETE FROM game_reviewer;
+
+/* broken, need to create admins first */
 
 /*-----------------
 	COMPANY
