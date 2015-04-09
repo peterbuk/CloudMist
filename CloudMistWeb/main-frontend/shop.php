@@ -3,7 +3,7 @@ CPSC471
 -->
 <?php
     function filldiv() {
-        require_once 'connect.php';
+        require_once '../backend/connect.php';
         
         $sql_request = "SELECT name, description, price, genre, release_date FROM game";
         $result = mysqli_query($conn, $sql_request);

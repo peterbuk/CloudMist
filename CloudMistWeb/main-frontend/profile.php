@@ -1,11 +1,6 @@
 <?php
     require_once '../backend/connect.php';
     require_once '../backend/gamer_verify.php';
-    
-    // failed to login, redirect to login page
-    if (!$logged_in) {
-        header('Location: loginerror.php');
-    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +12,7 @@
 
 <body>
     <header>
-        Welcome
+        <h1>Welcome <?php printf($_SESSION['username']); ?></h1>
     </header>
     
     <div class="container">
