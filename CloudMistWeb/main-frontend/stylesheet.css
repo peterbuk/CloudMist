@@ -101,3 +101,18 @@ LOGIN HEADER
     padding: 5px;
     
 }
+
+
+
+
+
+
+
+#gameList {
+    border: 3px solid black;
+    padding: 5px;
+}
+
+#gameList tr {
+    border: 1px solid black;
+}

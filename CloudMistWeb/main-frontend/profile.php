@@ -21,7 +21,7 @@
             <ul id="sideButton">
                 <li><a href="#">PROFILE</a></li>
                 <li><a href="#">GAMELIST</a></li>
-                <li><a href="#">SHOP</a></li>
+                <li><a href="../main-frontend/shop.php">SHOP</a></li>
                 <li><a href="#">FRIENDS</a></li>
             </ul>
         </div>
