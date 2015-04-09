@@ -6,7 +6,7 @@
         $port= 3306;
 
         //create connection
-       // $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
+        // $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
         $conn = mysqli_init();
         $sucess = mysqli_real_connect($conn, $dbhost,$dbuser,$dbpass, $db, $port);
         
