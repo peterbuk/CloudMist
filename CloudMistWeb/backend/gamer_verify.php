@@ -5,7 +5,7 @@
     require_once 'connect.php';
     
     // check that form items are submitted
-    if (isset($_POST['g_user']) and isset($_POST['password'])) {
+    if (isset($_POST['g_user']) && isset($_POST['password'])) {
         $username = $_POST['g_user'];
         $password = $_POST['password'];
         
