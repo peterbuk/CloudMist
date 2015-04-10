@@ -4,8 +4,8 @@
     session_start();
     require_once 'connect.php';
     
-    // check that form items are submitted or already logged in
-    if ((isset($_POST['g_user']) && isset($_POST['password'])) || isset($_SESSION['username'])) {
+    // check that form items are submitted
+    if ((isset($_POST['g_user']) && isset($_POST['password']))) {
         $username = $_POST['g_user'];
         $password = $_POST['password'];
         
@@ -25,7 +25,11 @@
             session_destroy();
             header('Location: login_error.php');
         }
-    } else {
+    }   // already logged on
+    else if (isset($_SESSION['username'])) {
+        
+    }
+    else {  // failed to verify
         session_destroy();
         header('Location: login_error.php');
     }
