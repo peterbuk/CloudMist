@@ -3,6 +3,13 @@ CPSC471
 -->
 
 <?php
+    require_once '../backend/gamer_verify.php';
+    function usernamediv() {
+        printf($_SESSION['username']); 
+    }
+	
+	
+
 
         if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
