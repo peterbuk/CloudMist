@@ -9,7 +9,7 @@ CPSC471
 
     function filldiv() { 
         require '../backend/connect.php';
-        $sql_request = "SELECT game_id, name, description, price, genre, release_date FROM game";
+        $sql_request = "SELECT game_id, name, price, genre, release_date FROM game";
         $result = mysqli_query($conn, $sql_request);
 
 
@@ -17,7 +17,6 @@ CPSC471
             echo '<table id="gameList"><tbody><tr>'
                     . '<th>ID</th>'
                     . '<th>NAME</th>'
-                    . '<th>DESCRIPTION</th>'
                     . '<th>PRICE</th>'
                     . '<th>GENRE</th>'
                     . '<th>RELEASE DATE</th>'
@@ -29,7 +28,6 @@ CPSC471
                 $game_id = $row["game_id"];
                 echo "<tr><td>".$row["game_id"]."</td>"
                        . "<td>".$row["name"]."</td>"
-                       . "<td>".$row["description"]."</td>"
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
                        . "<td>".$row["release_date"]."</td>"
@@ -55,7 +53,7 @@ CPSC471
             echo "0 results";
         }
 
-        $conn->close();
+        
     }
 ?>
 
