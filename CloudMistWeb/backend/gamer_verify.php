@@ -1,5 +1,5 @@
 <?php
-    // This script checks the login credentials
+    // This script checks the gamer login credentials
     
     session_start();
     require_once 'connect.php';
@@ -18,15 +18,20 @@
         $result = mysqli_query($conn, $query);
         
         if ($result->num_rows == 1) {
-            // login successful, set session username
-            $_SESSION['username'] = $username;
+            // login successful, set gamer session username
+            $_SESSION['g_user'] = $username;
         }
         else {
             session_destroy();
             header('Location: login_error.php');
         }
+<<<<<<< HEAD
     }
     else if(isset($_SESSION['username'])){
+=======
+    }   // already logged on
+    else if (isset($_SESSION['g_user'])) {
+>>>>>>> origin/master
         
     }
     else {
