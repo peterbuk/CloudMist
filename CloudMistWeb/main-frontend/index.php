@@ -14,6 +14,7 @@ CPSC471
             $newPassword = $_POST['new_password'];
             $conPassword = $_POST['con_password'];
 			
+            require '../backend/connect.php';
             $query = "SELECT * FROM gamer WHERE password='$curPassword'";
 
             $result = mysqli_query($con,$query) or die(mysqli_error());
