@@ -5,16 +5,21 @@ CPSC471
 <?php
 
 	
-	
+	require_once '../backend/gamer_verify.php';
+        echo(($_SESSION['username']));
+        $user = ($_SESSION['username']); 
+        echo $user;
+    
+         require_once '../backend/connect.php';
 
-
+/*
         if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
             $curPassword = $_POST['cur_password'];
             $newPassword = $_POST['new_password'];
             $conPassword = $_POST['con_password'];
 			
-            require '../backend/connect.php';
+        
             $query = "SELECT password FROM gamer WHERE password='$curPassword'";
 
             $result = mysqli_query($conn,$query) or die(mysqli_error());
@@ -25,13 +30,15 @@ CPSC471
                 
                 $result = mysqli_query($conn, $query) or die(mysqli_error());
             }
-        }
-        
+        }*/
+       echo 'hello';
         if (isset($_POST['cc_change']))
         {
+            echo 'hello2';
             $ccChange = $_POST['cc_change'];
-            
-            $query = "UPDATE payment_info SET credit_card='$ccChange' AND g_user=''";  
+            echo $ccChange;
+          
+            $query = "UPDATE payment_info SET credit_card='$ccChange'";  
             
             $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
@@ -40,7 +47,9 @@ CPSC471
         {
             $adrsChange = $_POST['adrs_change'];  
             
-            $query = "UPDATE payment_info SET billing_address='$adrsChange' AND g_user=''";
+            echo $adrsChange;
+            
+            $query = "UPDATE payment_info SET billing_address='$adrsChange'";
             
             $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
@@ -100,10 +109,10 @@ CPSC471
             </tr>
         </table>
                 
-        </form>
+        
 			
             <h3>Change Payment Info</h3>
-            <form method1="post" action="index.php" >
+  
             <table border="0" >
                 
             <tr>
