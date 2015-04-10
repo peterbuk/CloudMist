@@ -1,8 +1,9 @@
 <?php
-    require_once '../backend/connect.php';
+    
     require_once '../backend/gamer_verify.php';
 
     function getList(){
+        require '../backend/connect.php';
         $username = $_SESSION['username'];
         
         $query = "SELECT name, description, price, genre, release_date "
