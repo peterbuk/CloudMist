@@ -40,7 +40,7 @@
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="../css/stylesheet.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <head>
 </head>
