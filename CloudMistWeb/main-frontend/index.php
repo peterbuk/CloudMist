@@ -17,13 +17,13 @@ CPSC471
             require '../backend/connect.php';
             $query = "SELECT * FROM gamer WHERE password='$curPassword'";
 
-            $result = mysqli_query($con,$query) or die(mysqli_error());
+            $result = mysqli_query($conn,$query) or die(mysqli_error());
             
             if ($result == $curPassword && $newPassword == $conPassword)
             {
                 $query = "UPDATE gamer SET password='$newPassword'";
                 
-                $result = mysqli_query($con, $query) or die(mysqli_error());
+                $result = mysqli_query($conn, $query) or die(mysqli_error());
             }
         }
         
