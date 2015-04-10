@@ -82,7 +82,7 @@ LOGIN HEADER
     width: 40%;
 }
 
-#button {
+.button {
     float: right;
     padding: 8px 12px;
     border: 2px solid black;
