@@ -2,11 +2,13 @@
 CPSC471
 -->
 <?php
-    session_start();
-    
-    function filldiv() {
-        require_once '../backend/connect.php';
         
+    function usernamediv() {
+        printf($_SESSION['username']); 
+    }
+
+    function filldiv() { 
+        require_once '../backend/gamer_verify.php';
         $sql_request = "SELECT game_id, name, description, price, genre, release_date FROM game";
         $result = mysqli_query($conn, $sql_request);
 
@@ -67,7 +69,7 @@ CPSC471
 <body>
     <div class="header">
         <div class="logo_title">Cloud Mist</div>
-        <div class="username">Welcome <?php printf($_SESSION['username']); ?></div>
+        <div class="username">Welcome <?php usernamediv()?></div>
         <div class="clear"></div>
     </div>
     <div class="container">

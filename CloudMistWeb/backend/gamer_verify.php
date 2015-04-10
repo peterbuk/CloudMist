@@ -25,7 +25,11 @@
             session_destroy();
             header('Location: login_error.php');
         }
-    } else {
+    }
+    else if(isset($_SESSION['username'])){
+        
+    }
+    else {
         session_destroy();
         header('Location: login_error.php');
     }
