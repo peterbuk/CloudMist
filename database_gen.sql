@@ -14,7 +14,7 @@ CREATE TABLE company (	c_name VARCHAR(30),
 						location VARCHAR(30),
 						a_user VARCHAR(20),
 						status VARCHAR(10),
-						PRIMARY KEY (c_name)
+						PRIMARY KEY (c_name),
 						FOREIGN KEY (a_user) REFERENCES admins (a_user)
 					 );
 					 

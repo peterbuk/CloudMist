@@ -21,14 +21,25 @@ DELETE FROM game_reviewer;
 /* broken, need to create admins first */
 
 /*-----------------
+	ADMINS
+-----------------*/
+
+INSERT INTO admins VALUES ("kta",
+							"123456");
+
+/*-----------------
 	COMPANY
 -----------------*/
 INSERT INTO company VALUES ("Nintendo",
+						"mario",
 						"Japan",
+						"kta",
 						"Good");
 						
 INSERT INTO company VALUES ("Valve",
+						"three",
 						"America",
+						"kta",
 						"Active");
 
 
