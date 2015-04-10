@@ -1,38 +1,33 @@
 <?php
-    // This script checks the gamer login credentials
+    // This script checks the login credentials
     
     session_start();
     require_once 'connect.php';
     
     // check that form items are submitted
-    if (isset($_POST['g_user']) && isset($_POST['password'])) {
-        $username = $_POST['g_user'];
+    if (isset($_POST['r_user']) && isset($_POST['password'])) {
+        $username = $_POST['r_user'];
         $password = $_POST['password'];
         
         // check if credentials are in db
         $query = "SELECT * "
-                . "FROM gamer "
-                . "WHERE g_user='$username' "
+                . "FROM game_reviewer "
+                . "WHERE r_user='$username' "
                 . "AND password='$password'";
         
         $result = mysqli_query($conn, $query);
         
         if ($result->num_rows == 1) {
-            // login successful, set gamer session username
-            $_SESSION['g_user'] = $username;
+            // login successful, set session username
+            $_SESSION['username'] = $username;
         }
         else {
             session_destroy();
             header('Location: login_error.php');
         }
-<<<<<<< HEAD
-    }   // already logged on
-    else if (isset($_SESSION['g_user'])) {        
-=======
     }
     else if(isset($_SESSION['username'])){
         
->>>>>>> Krillinv2
     }
     else {
         session_destroy();
