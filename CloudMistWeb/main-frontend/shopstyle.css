@@ -1,0 +1,128 @@
+h1 {
+    font-size: 20pt;
+    font-family: 'PT Sans', sans-serif;
+    color:#000;
+}
+
+body { 
+    background-color:#fff;
+    margin: auto;
+    width: 80%;
+}
+p{
+    font-size:12pt;
+    font-family: 'PT Sans', sans-serif;
+    color:#000;
+    width:750px;
+}
+a:hover{
+    font-size:12pt;
+    color:#6F9EE9;
+    text-decoration:none;
+	
+}
+a{
+    font-size:12pt;
+    color:#3376E1;
+    text-decoration:none;
+}
+
+#content{
+    margin-left:200px;
+}
+
+#sidebar{
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:200px;
+    height:800px;
+    background-color:#D4D4D4;
+    //background-size:fill;
+	
+}
+
+#sideButton{
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+#sideButton li{
+    list-style-type: none;
+    list-style-position: inside;
+    margin:0;
+    padding:0;
+    text-align: center;
+    line-height: 60px;
+    width:100%;
+}
+
+#sideButton li:hover {
+    padding: 0;
+    background-color:#fff;
+}
+
+#sideButton li a{
+    text-decoration:none;
+}
+
+.container { 
+    position: relative; 
+    padding: 0 0 0 55px; 
+}
+
+.mid-content {
+    width: 500px;
+    margin: auto;
+}
+
+
+//For Header
+.header {
+    width:100%;
+}
+
+.logo_title{
+    font-size: 30px;
+    width: 50%;
+    float:left;
+}
+
+.username {
+    width: 50%;
+    float:right;
+    text-align: right;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+//For Shop.php
+#gameList {
+  display: block;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: auto;
+  width: auto;
+}
+  
+  #gameList th {
+    background-color: red;
+    color: white;
+    font-weight: normal;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  #gameList td {
+    background-color: rgb(238, 238, 238);
+    color: rgb(111, 111, 111);
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }

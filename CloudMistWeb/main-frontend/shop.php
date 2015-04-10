@@ -2,6 +2,8 @@
 CPSC471
 -->
 <?php
+    session_start();
+    
     function filldiv() {
         require_once '../backend/connect.php';
         
@@ -10,7 +12,7 @@ CPSC471
 
 
         if($result->num_rows > 0) {
-            echo '<table id="gameList"><tr>'
+            echo '<table id="gameList"><tbody><tr>'
                     . '<th>ID</th>'
                     . '<th>NAME</th>'
                     . '<th>DESCRIPTION</th>'
@@ -29,10 +31,23 @@ CPSC471
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
                        . "<td>".$row["release_date"]."</td>"
-                       . '<td><a href="currentGame.php?game_id='.$game_id.'"> Buy now </a></td>'
+                       . '<td><a href="../main-frontend/currentGame.php?game_id='.$game_id.'"> More Info </a></td>'
                     . "</tr>";
             }
-            echo "</table>";
+            echo "</tbody></table>";
+            /*
+            while($row = $result -> fetch_assoc()) {
+                $game_id = $row["game_id"];
+                echo '<div class="gametable"'
+                    . '<a class="table-row" href="../main-frontend/currentGame.php?game_id='.$game_id.'">'
+                       . '<div class="table-cell">'.$game_id.'</div>'
+                       . '<div class="table-cell">'.$row["name"]."</div>"
+                       . '<div class="table-cell">'.$row["description"].'</div>'
+                       . '<div class="table-cell">'.$row["price"]."</div>"
+                       . '<div class="table-cell">'.$row["genre"]."</div>"
+                       . '<div class="table=cell">'.$row["release_date"]."</div>"
+                    . '</a></div>';
+            }*/
         }
         else {
             echo "0 results";
@@ -44,12 +59,17 @@ CPSC471
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="shopstyle.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <head>
 </head>
 
 <body>
+    <div class="header">
+        <div class="logo_title">Cloud Mist</div>
+        <div class="username">Welcome <?php printf($_SESSION['username']); ?></div>
+        <div class="clear"></div>
+    </div>
     <div class="container">
         <div id="sidebar">
             <ul id="sideButton">
