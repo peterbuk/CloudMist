@@ -39,13 +39,25 @@ function currentGameDiv() {
     }
 }
 
+function haveGame() {
+    require '../backend/connect.php';
+    $game_id = filter_input(INPUT_GET, 'game_id');
+    //$sql_request = 
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="shopstyle.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <head>
-        
+    
+    <script>
+        function buygame() {
+            location.href = "buyGame.php";
+        }
+    </script>
     </head>
     <body>
         <div class="header">
@@ -56,17 +68,16 @@ function currentGameDiv() {
         <div class="container">
             <div id="sidebar">
                 <ul id="sideButton">
-                    <li><a href="#">PROFILE</a></li>
-                    <li><a href="#">GAME LIST</a></li>
-                    <li><a href="../main-frontend/shop.php">SHOP</a></li>
-                    <li><a href="#">FRIENDS</a></li>
+                    <a href="#"><li>PROFILE</li></a>
+                    <a href="#"><li>GAME LIST</li></a>
+                    <a href="../main-frontend/shop.php"><li>SHOP</li></a>
+                    <a href="#"><li>FRIENDS</li></a>
                 </ul>
             </div>
             <div id="content">
-                <?php currentGameDiv() ?>
-                <form type="post" action="currentGame.php">
-                    
-                </form>
+                <?php currentGameDiv();
+                        haveGame();
+                ?>
             </div>
         </div>
     </body>
