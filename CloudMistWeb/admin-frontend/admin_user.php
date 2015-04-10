@@ -25,6 +25,7 @@
                 <a href="admin_user.php"><li>USER MANAGEMENT</li></a>
                 <a href="admin_company.php"><li>COMPANY MANAGEMENT</li></a>
                 <a href="admin_blog.php"><li>NEW BLOG</li></a>
+                <a href="admin_login.php" onclick="logoffjs()"><li>LOGOFF</li></a>
             </ul>
         </div>
         <div id="content">
