@@ -2,13 +2,13 @@
 CPSC471
 -->
 <?php
-        
+    require_once '../backend/gamer_verify.php';
     function usernamediv() {
         printf($_SESSION['username']); 
     }
 
     function filldiv() { 
-        require_once '../backend/gamer_verify.php';
+        require '../backend/connect.php';
         $sql_request = "SELECT game_id, name, description, price, genre, release_date FROM game";
         $result = mysqli_query($conn, $sql_request);
 
