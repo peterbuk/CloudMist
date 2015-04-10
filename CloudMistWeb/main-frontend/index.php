@@ -15,11 +15,11 @@ CPSC471
             $conPassword = $_POST['con_password'];
 			
             require '../backend/connect.php';
-            $query = "SELECT * FROM gamer WHERE password='$curPassword'";
+            $query = "SELECT password FROM gamer WHERE password='$curPassword'";
 
             $result = mysqli_query($conn,$query) or die(mysqli_error());
             
-            if ($result == $curPassword && $newPassword == $conPassword)
+            if ($result && ($newPassword == $conPassword))
             {
                 $query = "UPDATE gamer SET password='$newPassword'";
                 
@@ -31,14 +31,18 @@ CPSC471
         {
             $ccChange = $_POST['cc_change'];
             
-            $query = "UPDATE payment_info SET credit_card='$ccChange'";  
+            $query = "UPDATE payment_info SET credit_card='$ccChange' AND g_user=''";  
+            
+            $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
         
         if (isset($_POST['adrs_change']))
         {
             $adrsChange = $_POST['adrs_change'];  
             
-            $query = "UPDATE payment_info SET billing_address='$adrsChange'";
+            $query = "UPDATE payment_info SET billing_address='$adrsChange' AND g_user=''";
+            
+            $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
 		
 	?>
