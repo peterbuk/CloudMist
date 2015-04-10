@@ -25,14 +25,8 @@
             session_destroy();
             header('Location: login_error.php');
         }
-<<<<<<< HEAD
-    }
-    else if(isset($_SESSION['username'])){
-=======
     }   // already logged on
-    else if (isset($_SESSION['g_user'])) {
->>>>>>> origin/master
-        
+    else if (isset($_SESSION['g_user'])) {        
     }
     else {
         session_destroy();
