@@ -2,16 +2,7 @@
 CPSC471
 -->
 
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="stylesheet.css">
-<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-<head>
-</head>
-
-<body>
-
-	<?php
+<?php
 
         if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
@@ -48,6 +39,15 @@ CPSC471
 	?>
 
 
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="stylesheet.css">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<head>
+</head>
+
+<body>
+    
     <div class="container">
         <div id="sidebar">
             <ul id="sideButton">
@@ -57,17 +57,7 @@ CPSC471
                 <li><a href="#">FRIENDS</a></li>
             </ul>
         </div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
         <div id="content">
             <h3>Change Password</h3>
             <form method="post" action="index.php" >
@@ -126,8 +116,7 @@ CPSC471
             <td><input type="submit" value="Update"/>
             </tr>
         </table>
-        </form>
-			
+        </form>	
 			
         </div>
     </div>
