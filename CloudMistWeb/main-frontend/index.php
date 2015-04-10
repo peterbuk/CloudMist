@@ -3,10 +3,7 @@ CPSC471
 -->
 
 <?php
-    require_once '../backend/gamer_verify.php';
-    function usernamediv() {
-        printf($_SESSION['username']); 
-    }
+
 	
 	
 
