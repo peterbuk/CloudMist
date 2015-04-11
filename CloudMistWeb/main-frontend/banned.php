@@ -4,9 +4,8 @@
 
 <html>
     <head>
-        <title>Cloud Mist - Failed to login</title>
+        <title>Cloud Mist - GTFO</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
-        <link rel="stylesheet" href="../css/adminstyle.css">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>
@@ -14,10 +13,8 @@
             <h1 class="logo">Cloud Mist</h1>
         </header>
         <div class="mid-content">
-            <h1>Admin Control Panel login failed.</h1>
-            <p>
-                <a href="admin_login.php">Click here to try again.</a>
-            </p>
+            <h1>YOU WERE BANNED! </h1>
+            <p>Think about what you have done. Tsk tsk.</p>
         </div>
     </body>
 </html>

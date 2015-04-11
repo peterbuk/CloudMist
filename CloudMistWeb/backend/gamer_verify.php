@@ -18,8 +18,15 @@
         $result = mysqli_query($conn, $query);
         
         if ($result->num_rows == 1) {
-            // login successful, set gamer session username
-            $_SESSION['g_user'] = $username;
+            // check if user is banned
+            $row = $result -> fetch_assoc();
+            if ($row['status'] == "Banned") {
+                session_destroy();
+                header('Location: banned.php');
+            } else {
+                // login successful, set gamer session username
+                $_SESSION['g_user'] = $username;
+            }
         }
         else {
             session_destroy();

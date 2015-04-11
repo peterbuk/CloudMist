@@ -58,6 +58,8 @@ DROP TABLE IF EXISTS gamer;
 CREATE TABLE gamer (	g_user VARCHAR(20) NOT NULL, 
 						password VARCHAR(20) NOT NULL, 
 						status VARCHAR(10) NOT NULL, 
+						a_user VARCHAR(20),
+						FOREIGN KEY (a_user) REFERENCES admins (a_user),
 						PRIMARY KEY (g_user)
 					);
 
@@ -78,13 +80,6 @@ CREATE TABLE game_list (	g_user VARCHAR(20) NOT NULL,
 							FOREIGN KEY (game_id) REFERENCES game(game_id)
 						);
 						
-DROP TABLE IF EXISTS gamer_banned;
-CREATE TABLE gamer_banned (	a_user VARCHAR(20) NOT NULL,
-							g_user VARCHAR(20) NOT NULL,
-							PRIMARY KEY (a_user, g_user),
-							FOREIGN KEY (a_user) REFERENCES admins (a_user),
-							FOREIGN KEY (g_user) REFERENCES gamer (g_user)
-						);
 
 DROP TABLE IF EXISTS payment_info;
 CREATE TABLE payment_info (	credit_card VARCHAR(20) NOT NULL,

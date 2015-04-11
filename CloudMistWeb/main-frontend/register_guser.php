@@ -21,7 +21,7 @@
                 if ($result->num_rows == 0) {
                     // finally okay to create user
                     $create_user_q = "INSERT INTO gamer "
-                            . "VALUES ('$g_user', '$password', 'Active')";
+                            . "VALUES ('$g_user', '$password', 'Active', null)";
                     $result = mysqli_query($conn, $create_user_q);
                     
                     if ($result) {

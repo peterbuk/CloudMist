@@ -1,0 +1,37 @@
+body {
+    background: #d6e7e7;
+}
+
+#sidebar {
+    background: #f8ebd0 ;
+}
+
+.admin-table table, tr, th, td {
+    border: 1px solid black;
+}
+
+th {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    padding: 3px 8px;
+}
+
+tr {
+    padding: 20px 0;
+    
+}
+
+td {
+    font-family: 'PT Sans', sans-serif;
+    padding: 5px;
+}
+
+#current {
+    background:  #fdfdfd;
+}
+
+#logoff {
+    background: #e5d6b8;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
