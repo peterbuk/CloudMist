@@ -41,9 +41,32 @@ INSERT INTO company VALUES ("Valve",
 						"America",
 						"kta",
 						"Active");
+						
+/*-----------------
+	NEWS_ITEM
+-----------------*/
+
+INSERT INTO news_item VALUES ( default,
+								"test blog please ignore",
+								"Please stop reading!",
+								'2015-03-25 8:45:25' );
+
+INSERT INTO news_item VALUES ( default,
+								"Welcome to CloudMist!",
+								"Welcome to our new platform, we hope you enjoy!",
+								'2015-04-10 12:00:00' );
+								
 
 /*-----------------
-	GAMES
+	BLOGGED
+-----------------*/
+
+INSERT INTO blogged VALUES ( "kta", 1 );
+INSERT INTO blogged VALUES ( "kta", 2 );
+
+
+/*-----------------
+	GAME
 -----------------*/
 
 INSERT INTO game VALUES ( default,
@@ -81,7 +104,7 @@ INSERT INTO game VALUES ( default,
 				"3.3");
 				
 /*-----------------
-	GAMERS
+	GAMER
 -----------------*/			
 INSERT INTO gamer VALUES (	"Eternith",
 							"hunter123",
@@ -90,10 +113,63 @@ INSERT INTO gamer VALUES (	"Eternith",
 INSERT INTO gamer VALUES (	"bob",
 							"123456",
 							"Active");
-							
+
+INSERT INTO gamer VALUES (	"cindy",
+							"123456",
+							"Banned");
+
+INSERT INTO gamer VALUES (	"alice",
+							"123456",
+							"Active");							
+/*-----------------
+	FRIEND_OF
+-----------------*/		
+
+INSERT INTO friend_of VALUES ( "Eternith",
+								"bob");
+								
+INSERT INTO friend_of VALUES ( "alice",
+								"cindy");
+								
+INSERT INTO friend_of VALUES ( "cindy",
+								"alice");
+								
+INSERT INTO friend_of VALUES ( "cindy",
+								"bob");								
 /*-----------------
 	GAME LIST
 -----------------*/				
 
 INSERT INTO game_list VALUES ( 	"bob",
-								"1")				
+								"1");
+
+/*-----------------
+	GAME LIST
+-----------------*/	
+
+INSERT INTO gamer_banned VALUES ( "kta", "cindy" );
+
+/*-----------------
+	PAYMENT_INFO
+-----------------*/	
+
+INSERT INTO payment_info VALUES ( "1234567812341234",
+							"12 Main Street",
+							"Eternith");
+
+/*-----------------
+	GAME_REVIEWER
+-----------------*/	
+
+INSERT INTO game_reviewer VALUES ( "gamestop",
+									"123456" );
+
+/*-----------------
+	REVIEW
+-----------------*/	
+
+INSERT INTO review VALUES ( default,
+							"THIS GAME IS AWESOME 10/10",
+							10,
+							1,
+							"gamestop");

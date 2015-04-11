@@ -27,7 +27,17 @@ CREATE TABLE news_item (	article_no int AUTO_INCREMENT,
 							date_written DATETIME,
 							PRIMARY KEY (article_no)
 						);
-						
+				
+				
+DROP TABLE IF EXISTS blogged;
+CREATE TABLE blogged (	a_user VARCHAR(20),
+						article_no int,
+						PRIMARY KEY (a_user, article_no),
+						FOREIGN KEY (a_user) REFERENCES admins (a_user),
+						FOREIGN KEY (article_no) REFERENCES news_item (article_no)
+					);
+		
+		
 DROP TABLE IF EXISTS game;
 CREATE TABLE game ( game_id INT AUTO_INCREMENT, 
 					name VARCHAR(100), 
@@ -43,13 +53,6 @@ CREATE TABLE game ( game_id INT AUTO_INCREMENT,
 					FOREIGN KEY (c_name) REFERENCES company (c_name)
 				  );
 
-DROP TABLE IF EXISTS blogged;
-CREATE TABLE blogged (	a_user VARCHAR(20),
-						article_no int,
-						PRIMARY KEY (a_user, article_no),
-						FOREIGN KEY (a_user) REFERENCES admins (a_user),
-						FOREIGN KEY (article_no) REFERENCES news_item (article_no)
-					);
 
 DROP TABLE IF EXISTS gamer;
 CREATE TABLE gamer (	g_user VARCHAR(20), 
@@ -58,6 +61,7 @@ CREATE TABLE gamer (	g_user VARCHAR(20),
 						PRIMARY KEY (g_user)
 					);
 
+					
 DROP TABLE IF EXISTS friend_of;
 CREATE TABLE friend_of (	f1_user VARCHAR(20), 
 							f2_user VARCHAR(20), 
