@@ -104,7 +104,7 @@ require '../backend/admin_verify.php';
                 <a href="admin_profile.php"><li>PROFILE</li></a>
                 <a href="admin_user.php"><li id="current">USER MANAGEMENT</li></a>
                 <a href="admin_company.php"><li>COMPANY STATUS</li></a>
-                <a href="admin_blog.php"><li>NEW BLOG</li></a>
+                <a href="admin_blog.php"><li>NEWS BLOG<</li></a>
                 <a href="admin_login.php" onclick="logoffjs()"><li id="logoff">LOGOFF</li></a>
             </ul>
         </div>

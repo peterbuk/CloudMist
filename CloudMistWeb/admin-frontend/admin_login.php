@@ -24,18 +24,18 @@
     <div class="mid-content">
         <h1>Admin Control Panel</h1>
         <form method="post" action="admin_profile.php">
-            <table class="form-field">
+            <table class="login-table">
                 <tr>
                     <td>Username:</td>
-                    <td><input class="form-field" type="text" name="a_user"></td>
+                    <td><input type="text" name="a_user"></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input class="form-field" type="password" name="password"></td>
+                    <td><input type="password" name="password"></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td colspan="2"><input class="form-field" type="submit" value="  Submit  "></td>
+                    <td colspan="2"><input type="submit" value="  Submit  "></td>
                 </tr>
             </table>
         </form>
