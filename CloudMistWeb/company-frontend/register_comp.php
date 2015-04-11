@@ -2,30 +2,31 @@
     require_once '../backend/connect.php';
 
     // check if fields are posted
-    if (isset($_POST['r_user']) && isset($_POST['password'])) {
-        $r_user = $_POST['r_user'];
-        $password = $_POST['password'];
+    if (isset($_POST['c_name']) && isset($_POST['location']) && isset($_POST['status'])) {
+        $c_name = $_POST['c_name'];
+        $location = $_POST['location'];
+        $status = $_POST['status'];
         
         // check for non-empty
-        if (!empty($r_user) && !empty($password)) {
+        if (!empty($c_name) && !empty($location) && !empty($status)) {
             
-            // check for password requirement of >5 characters
-            if (strlen($password) > 5) {
+            // check for location requirement of >5 characters
+            if (strlen($location) > 5) {
                 
                 // check that username doesn't already exist
                 $username_check_q = "SELECT * "
-                        . "FROM reviewer "
-                        . "WHERE r_user='$r_user'";
+                        . "FROM company "
+                        . "WHERE c_name='$c_name'";
                 $result = mysqli_query($conn, $username_check_q);
                 
                 if ($result->num_rows == 0) {
                     // finally okay to create user
-                    $create_user_q = "INSERT INTO game_reviewer "
-                            . "VALUES ('$r_user', '$password')";
-                    $result = mysqli_query($conn, $create_user_q);
+                    $create_comp_q = "INSERT INTO company "
+                            . "VALUES ('$c_name', '$location', '$status')";
+                    $result = mysqli_query($conn, $create_comp_q);
                     
                     if ($result) {
-                        $msg = "User '$r_user' has been created. Welcome!";
+                        $msg = "User '$c_name' has been created. Welcome!";
                     }
                     else {
                         $msg= "Error: Could not create account";
@@ -50,20 +51,14 @@
 <html>
     <head>
         <title>Cloud Mist - Registration</title>
-        <link rel="stylesheet" href="../css/reviewerstyle.css">
+        <link rel="stylesheet" href="../css/companystyle.css">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' 
               rel='stylesheet' type='text/css'>
         <script>
             function return_login() {
-                location.href = "reviewer_login.php";
+                location.href = "company_login.php";
             }
         </script>
-        
-        <style>
-            body{color:white; background-color: darkslategrey;}
-            h1{color:white;}
-            p{color:white;}
-        </style>
     </head>
     
     <body>
@@ -75,15 +70,19 @@
             <h1>Please fill in the following information.</h1>
             <p>Password has to be at least 5 characters long.</p>
 
-            <form method="post" action="register_ruser.php">
+            <form method="post" action="register_comp.php">
                 <table class="form-field">
                     <tr>
                         <td>Username:</td>
-                        <td><input class="form-field" type="text" name="r_user"></td>
+                        <td><input class="form-field" type="text" name="c_name"></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input class="form-field" type="password" name="password"></td>
+                        <td><input class="form-field" type="text" name="location"></td>
+                    </tr>
+                    <tr>
+                        <td>Location:</td>
+                        <td><input class="form-field" type="text" name="status"></td>
                     </tr>
                     <tr>
                         <td></td>
