@@ -23,7 +23,6 @@
     
     function getList(){
         require '../backend/connect.php';
-        $username = $_SESSION['a_user'];
         
         $comp_list_q = "SELECT c_name, location, status "
                 . "FROM company ";

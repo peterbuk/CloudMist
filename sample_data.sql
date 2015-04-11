@@ -8,7 +8,6 @@ Warning: This will clear out whatever is currently in your database!
 DELETE FROM game_list;
 DELETE FROM review;
 DELETE FROM game;
-DELETE FROM gamer_banned;
 DELETE FROM company;
 DELETE FROM blogged;
 DELETE FROM admins;
@@ -114,19 +113,23 @@ INSERT INTO game VALUES ( default,
 -----------------*/			
 INSERT INTO gamer VALUES (	"Eternith",
 							"hunter123",
-							"Active" );
+							"Active",
+							null);
 							
 INSERT INTO gamer VALUES (	"bob",
 							"123456",
-							"Active");
+							"Active",
+							null);
 
 INSERT INTO gamer VALUES (	"cindy",
 							"123456",
-							"Banned");
+							"Banned",
+							"kta");
 
 INSERT INTO gamer VALUES (	"alice",
 							"123456",
-							"Active");							
+							"Active",
+							null);							
 /*-----------------
 	FRIEND_OF
 -----------------*/		
@@ -148,12 +151,6 @@ INSERT INTO friend_of VALUES ( "cindy",
 
 INSERT INTO game_list VALUES ( 	"bob",
 								"1");
-
-/*-----------------
-	GAME LIST
------------------*/	
-
-INSERT INTO gamer_banned VALUES ( "kta", "cindy" );
 
 /*-----------------
 	PAYMENT_INFO
