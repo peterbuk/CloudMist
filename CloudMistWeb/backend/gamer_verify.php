@@ -25,14 +25,8 @@
             session_destroy();
             header('Location: login_error.php');
         }
-<<<<<<< HEAD
     }   // already logged on
     else if (isset($_SESSION['g_user'])) {        
-=======
-    }
-    else if(isset($_SESSION['username'])){
-        
->>>>>>> Krillinv2
     }
     else {
         session_destroy();

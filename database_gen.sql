@@ -21,7 +21,7 @@ CREATE TABLE company (	c_name VARCHAR(30),
 
 
 DROP TABLE IF EXISTS news_item;
-CREATE TABLE news_item (	article_no int,
+CREATE TABLE news_item (	article_no int AUTO_INCREMENT,
 							title VARCHAR(30),
 							content TEXT,
 							date_written DATETIME,
@@ -29,7 +29,7 @@ CREATE TABLE news_item (	article_no int,
 						);
 						
 DROP TABLE IF EXISTS game;
-CREATE TABLE game ( game_id INT, 
+CREATE TABLE game ( game_id INT AUTO_INCREMENT, 
 					name VARCHAR(100), 
 					price FLOAT(4,2),
 					description TEXT,
@@ -97,7 +97,7 @@ CREATE TABLE game_reviewer (	r_user VARCHAR(20),
 							);	
 
 DROP TABLE IF EXISTS review;
-CREATE TABLE review (	review_no int,
+CREATE TABLE review (	review_no int AUTO_INCREMENT,
 						content TEXT,
 						score int,
 						game_id int,

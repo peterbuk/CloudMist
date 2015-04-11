@@ -20,15 +20,6 @@
 <body>
     <header>
         <h1 class="logo">Cloud Mist</h1>
-<<<<<<< HEAD
-=======
-        <div id="admin-button">
-            <a href="admin-login.php">Admin</a>
-        </div>
-        <div id="admin-button">
-            <a href="../reviewer-frontend/reviewer_login.php">Reviewer</a>
-        </div>
->>>>>>> Krillinv2
     </header>
     
     <div class="mid-content">

@@ -4,7 +4,7 @@
 
     function getList(){
         require '../backend/connect.php';
-        $username = $_SESSION['username'];
+        $username = $_SESSION['g_user'];
         
         $query = "SELECT name, description, price, genre, release_date "
                 . "FROM game INNER JOIN game_list ON game_list.game_id=game.game_id "
@@ -47,7 +47,7 @@
 
 <body>
         <header>
-        <h1>Welcome <?php printf($_SESSION['username']) ?></h1>
+        <h1>Welcome <?php printf($_SESSION['g_user']) ?></h1>
         </header>
     
 	<div class="container">

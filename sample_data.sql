@@ -42,8 +42,11 @@ INSERT INTO company VALUES ("Valve",
 						"kta",
 						"Active");
 
+/*-----------------
+	GAMES
+-----------------*/
 
-INSERT INTO game VALUES (1, 
+INSERT INTO game VALUES ( default,
 				"Super Mario World -1", 
 				24.99, 
 				"Mario like you never seen before!", 
@@ -54,11 +57,8 @@ INSERT INTO game VALUES (1,
 				"Nintendo",
 				"1.0");
 
-/*-----------------
-	GAMES
------------------*/
 				
-INSERT INTO game VALUES (2, 
+INSERT INTO game VALUES ( default,
 				"KingDeDeDe Adventures", 
 				49.99, 
 				"Guess who's back?", 
@@ -69,7 +69,7 @@ INSERT INTO game VALUES (2,
 				"Nintendo",
 				"1.2");
 				
-INSERT INTO game VALUES (3, 
+INSERT INTO game VALUES ( default,
 				"Half-Life 3", 
 				999.99, 
 				"Just kidding.", 
@@ -86,3 +86,14 @@ INSERT INTO game VALUES (3,
 INSERT INTO gamer VALUES (	"Eternith",
 							"hunter123",
 							"Active" );
+							
+INSERT INTO gamer VALUES (	"bob",
+							"123456",
+							"Active");
+							
+/*-----------------
+	GAME LIST
+-----------------*/				
+
+INSERT INTO game_list VALUES ( 	"bob",
+								"1")				

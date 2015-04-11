@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <h1>Welcome <?php printf($_SESSION['username']); ?></h1>
+        <h1>Welcome <?php printf($_SESSION['g_user']); ?></h1>
     </header>
     
     <div class="container">
