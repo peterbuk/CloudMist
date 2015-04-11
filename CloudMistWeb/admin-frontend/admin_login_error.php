@@ -6,6 +6,7 @@
     <head>
         <title>Cloud Mist - Failed to login</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
+        <link rel="stylesheet" href="../css/adminstyle.css">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>

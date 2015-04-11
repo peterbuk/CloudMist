@@ -1,7 +1,17 @@
+* {
+    border-collapse:collapse;
+}
+
 h1 {
     font-size: 20pt;
     font-family: 'PT Sans', sans-serif;
     color:#000;
+}
+
+h3 {
+    font-size: 12pt;
+    font-family: 'PT Sans', sans-serif;
+    color:#000; 
 }
 
 body { 
@@ -34,16 +44,23 @@ a{
 #sidebar{
     position:absolute;
     top:0; bottom:0; left:0;
-    width:200px;
+    width:auto;
     height:800px;
     background-color:#D4D4D4;
     background-size:fill;
-	
 }
 
-#sideButton ul{
+#sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#sideButton li{
     list-style-type: none;
-    padding:0;
+    padding: 5px;
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+    border-bottom: 1px solid black;
 }
 
 #sideButton li{
@@ -101,3 +118,4 @@ LOGIN HEADER
     padding: 5px;
     
 }
+

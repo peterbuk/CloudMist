@@ -34,13 +34,19 @@ INSERT INTO company VALUES ("Nintendo",
 						"mario",
 						"Japan",
 						"kta",
-						"Good");
+						"Approved");
 						
 INSERT INTO company VALUES ("Valve",
 						"three",
 						"America",
 						"kta",
-						"Active");
+						"Approved");
+						
+INSERT INTO company VALUES ("Newbies",
+							"12356",
+							"Canada",
+							null,
+							"Pending");
 						
 /*-----------------
 	NEWS_ITEM
