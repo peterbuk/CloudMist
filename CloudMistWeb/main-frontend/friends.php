@@ -1,11 +1,43 @@
-<?php
-	require_once '../backend/gamer_verify.php';
-        require_once '../backend/connect.php';
-        $user = ($_SESSION['g_user']); 
-               
-        if (isset($_POST['add_friend']))
-        {
-            $addFriend = $_POST['add_friend'];
+<?php        
+        require_once '../backend/gamer_verify.php';
+
+        function getList()
+        {          
+            require '../backend/connect.php';
+            $user = ($_SESSION['g_user']);
+            
+            $query = "SELECT f2_user FROM friend_of WHERE f1_user='$user'";
+            $result = mysqli_query($conn,$query);
+            
+            if($result->num_rows > 0)
+            {
+                while($row = $result -> fetch_assoc())
+                {
+                    echo $row["f2_user"]."</br>";
+                }
+                
+                echo "</br>";
+            }
+            else
+            {
+                echo "No friends found.";
+            }
+            
+            if (isset($_POST['add_friend']))
+            {
+                $addFriend = $_POST['add_friend'];
+                
+                $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
+                $result = mysqli_query($conn,$query);
+                
+                if($result)
+                {
+                    $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
+                    $result = mysqli_query($conn, $query);
+                    header("Refresh: 0");
+                }
+            }
+        
         }
 		
 ?>
@@ -37,7 +69,11 @@
         <div id="content">
             <h1>FRIENDS</h1>
             <h3>Friends</h3>
+            <?php
             
+            getList()
+            
+            ?>
             <form method="post" action="friends.php" >
                 <h3>Add Friend</h3>
                 <table border="0" >

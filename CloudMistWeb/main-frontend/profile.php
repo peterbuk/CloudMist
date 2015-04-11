@@ -23,14 +23,14 @@
         {
             $ccChange = $_POST['cc_change'];
             $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
-            $result = mysqli_query($conn, $query) or die(mysqli_error());
+            $result = mysqli_query($conn, $query);
         }
         
         if (isset($_POST['adrs_change']))
         {
             $adrsChange = $_POST['adrs_change'];  
             $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
-            $result = mysqli_query($conn, $query) or die(mysqli_error());
+            $result = mysqli_query($conn, $query);
         }
 		
 ?>
