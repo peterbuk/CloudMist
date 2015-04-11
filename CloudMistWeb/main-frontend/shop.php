@@ -2,16 +2,21 @@
 CPSC471
 -->
 <?php
-    function filldiv() {
-        require_once '../backend/connect.php';
-        
-        $sql_request = "SELECT name, description, price, genre, release_date FROM game";
+    require_once '../backend/gamer_verify.php';
+    function usernamediv() {
+        printf($_SESSION['g_user']); 
+    }
+
+    function filldiv() { 
+        require '../backend/connect.php';
+        $sql_request = "SELECT game_id, name, price, genre, release_date FROM game";
         $result = mysqli_query($conn, $sql_request);
 
+
         if($result->num_rows > 0) {
-            echo '<table id="gameList"><tr>'
+            echo '<table id="gameList"><tbody><tr>'
+                    . '<th>ID</th>'
                     . '<th>NAME</th>'
-                    . '<th>DESCRIPTION</th>'
                     . '<th>PRICE</th>'
                     . '<th>GENRE</th>'
                     . '<th>RELEASE DATE</th>'
@@ -20,39 +25,47 @@ CPSC471
 
             //output data
             while($row = $result -> fetch_assoc()) {
-                echo "<tr><td>".$row["name"]."</td>"
-                       . "<td>".$row["description"]."</td>"
+                $game_id = $row["game_id"];
+                echo "<tr><td>".$row["game_id"]."</td>"
+                       . "<td>".$row["name"]."</td>"
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
                        . "<td>".$row["release_date"]."</td>"
-                       . "<td></td>"
+                       . '<td><a href="../main-frontend/currentGame.php?game_id='.$game_id.'"> More Info </a></td>'
                     . "</tr>";
             }
-            echo "</table>";
+            echo "</tbody></table>";
+            
         }
         else {
             echo "0 results";
         }
 
-        $conn->close();
+        
     }
 ?>
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/shopstyle.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <head>
 </head>
 
 <body>
+    <div class="header">
+        <div class="logo_title">Cloud Mist</div>
+        <div class="username">Welcome <?php usernamediv()?></div>
+        <div class="clear"></div>
+    </div>
     <div class="container">
         <div id="sidebar">
             <ul id="sideButton">
-                <li><a href="#">PROFILE</a></li>
-                <li><a href="#">GAME LIST</a></li>
-                <li><a href="#">SHOP</a></li>
-                <li><a href="#">FRIENDS</a></li>
+                <a href="profile.php"><li>PROFILE</li></a>
+                <a href="gamelist.php"><li>GAME LIST</li></a>
+                <a href="shop.php"><li>SHOP</li></a>
+                <a href="friends.php"><li>FRIENDS</li></a>
             </ul>
         </div>
         <div id="content">
