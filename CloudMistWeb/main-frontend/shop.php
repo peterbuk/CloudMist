@@ -35,19 +35,7 @@ CPSC471
                     . "</tr>";
             }
             echo "</tbody></table>";
-            /*
-            while($row = $result -> fetch_assoc()) {
-                $game_id = $row["game_id"];
-                echo '<div class="gametable"'
-                    . '<a class="table-row" href="../main-frontend/currentGame.php?game_id='.$game_id.'">'
-                       . '<div class="table-cell">'.$game_id.'</div>'
-                       . '<div class="table-cell">'.$row["name"]."</div>"
-                       . '<div class="table-cell">'.$row["description"].'</div>'
-                       . '<div class="table-cell">'.$row["price"]."</div>"
-                       . '<div class="table-cell">'.$row["genre"]."</div>"
-                       . '<div class="table=cell">'.$row["release_date"]."</div>"
-                    . '</a></div>';
-            }*/
+            
         }
         else {
             echo "0 results";

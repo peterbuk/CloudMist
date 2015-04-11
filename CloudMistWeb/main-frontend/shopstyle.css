@@ -132,10 +132,70 @@ a{
   }
 
  //For currentGame.php
- #currentGameInfo {
+ .currentGameInfo {
+ }
+ 
+ 
+ .currentGameInfo td{
+     padding:5px;
+     font-size: 16px;
      
  }
  
- #currentGameInfo td{
-     padding:5px;
+ //buy game button in currentGame.php
+ .buygame_btn{
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background: #6BCEA0;
+    border: 0px none;
+    outline: 0px none;
+ }
+ 
+ .boughtgame_btn {
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background: #B3B9B6;
+    outline: 0px none;
+ }
+ 
+ 
+ 
+ 
+ 
+ //buyGame.php
+ .confirm_buy {
+ }
+ 
+ .confirm_buy td {
+     padding: 10px;
+     font-size: 16 px;
+     
+ }
+ 
+ .confirmbtn {
+     padding:25px 10px 50px 10px;
+     display:inline-block;
+ }
+ 
+ .confirm_btn {
+     padding: 10px;
+     font-size: 18px;
+     color: #fff;
+     background: #63C05D;
+     outline: 0px none;
+ }
+ 
+ .cancelbtn {
+     display: inline-block;
+     padding: 25px 10px 50px 10px;
+ }
+ 
+ .back_btn {
+     padding: 10px;
+     font-size: 18px;
+     color: #fff;
+     background: #D50606;
+     outline: 0px none;
  }
