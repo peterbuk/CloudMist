@@ -11,8 +11,8 @@ CREATE TABLE admins (	a_user VARCHAR(20) NOT NULL,
 DROP TABLE IF EXISTS company;
 CREATE TABLE company (	c_name VARCHAR(30) NOT NULL,
 						password VARCHAR(20) NOT NULL,
-						location VARCHAR(30) NOT NULL,
-						a_user VARCHAR(20) NOT NULL,
+						location VARCHAR(30),
+						a_user VARCHAR(20),
 						status VARCHAR(10) NOT NULL,
 						PRIMARY KEY (c_name),
 						FOREIGN KEY (a_user) REFERENCES admins (a_user)
@@ -23,8 +23,8 @@ CREATE TABLE company (	c_name VARCHAR(30) NOT NULL,
 DROP TABLE IF EXISTS news_item;
 CREATE TABLE news_item (	article_no int AUTO_INCREMENT NOT NULL,
 							title VARCHAR(30) NOT NULL,
-							content TEXT NOT NULL,
-							date_written DATETIME NOT NULL,
+							content TEXT,
+							date_written DATETIME,
 							PRIMARY KEY (article_no)
 						);
 				
@@ -39,7 +39,7 @@ CREATE TABLE blogged (	a_user VARCHAR(20) NOT NULL,
 		
 		
 DROP TABLE IF EXISTS game;
-CREATE TABLE game ( game_id INT AUTO_INCREMENT, 
+CREATE TABLE game ( game_id INT AUTO_INCREMENT NOT NULL, 
 					name VARCHAR(100) NOT NULL, 
 					price FLOAT(4,2) NOT NULL,
 					description TEXT,
