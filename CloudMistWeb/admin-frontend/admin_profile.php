@@ -31,7 +31,7 @@
                 <a href="admin_profile.php"><li id="current">PROFILE</li></a>
                 <a href="admin_user.php"><li>USER MANAGEMENT</li></a>
                 <a href="admin_company.php"><li>COMPANY STATUS</li></a>
-                <a href="admin_blog.php"><li>NEWS BLOG<</li></a>
+                <a href="admin_blog.php"><li>NEWS BLOG</li></a>
                 <a href="admin_login.php" onclick="logoffjs()"><li id="logoff">LOGOFF</li></a>
             </ul>
         </div>

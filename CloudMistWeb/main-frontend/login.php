@@ -27,7 +27,7 @@
     
     <div class="mid-content">
         <h1>Log in below.</h1>
-        <form method="post" action="profile.php">
+        <form method="post" action="home.php">
             <table class="form-field">
                 <tr>
                     <td>Username:</td>
