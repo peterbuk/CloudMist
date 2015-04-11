@@ -62,6 +62,10 @@ a{
     text-decoration:none;
 }
 
+#my_file {
+    display:none;
+}
+
 .container { 
     position: relative; 
     padding: 0 0 0 55px; 
