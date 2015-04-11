@@ -25,18 +25,11 @@ CREATE TABLE news_item (	article_no int AUTO_INCREMENT NOT NULL,
 							title VARCHAR(30) NOT NULL,
 							content TEXT,
 							date_written DATETIME,
+							a_user VARCHAR(20) NOT NULL,
+							FOREIGN KEY (a_user) REFERENCES admins (a_user),
 							PRIMARY KEY (article_no)
 						);
 				
-				
-DROP TABLE IF EXISTS blogged;
-CREATE TABLE blogged (	a_user VARCHAR(20) NOT NULL,
-						article_no int NOT NULL,
-						PRIMARY KEY (a_user, article_no),
-						FOREIGN KEY (a_user) REFERENCES admins (a_user),
-						FOREIGN KEY (article_no) REFERENCES news_item (article_no)
-					);
-		
 		
 DROP TABLE IF EXISTS game;
 CREATE TABLE game ( game_id INT AUTO_INCREMENT NOT NULL, 

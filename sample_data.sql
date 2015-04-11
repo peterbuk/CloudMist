@@ -9,7 +9,6 @@ DELETE FROM game_list;
 DELETE FROM review;
 DELETE FROM game;
 DELETE FROM company;
-DELETE FROM blogged;
 DELETE FROM admins;
 DELETE FROM news_item;
 DELETE FROM friend_of;
@@ -54,21 +53,14 @@ INSERT INTO company VALUES ("Newbies",
 INSERT INTO news_item VALUES ( default,
 								"test blog please ignore",
 								"Please stop reading!",
-								'2015-03-25 8:45:25' );
+								'2015-03-25 8:45:25',
+								"kta");
 
 INSERT INTO news_item VALUES ( default,
 								"Welcome to CloudMist!",
 								"Welcome to our new platform, we hope you enjoy!",
-								'2015-04-10 12:00:00' );
-								
-
-/*-----------------
-	BLOGGED
------------------*/
-
-INSERT INTO blogged VALUES ( "kta", 1 );
-INSERT INTO blogged VALUES ( "kta", 2 );
-
+								'2015-04-10 12:00:00',
+								"kta");
 
 /*-----------------
 	GAME
