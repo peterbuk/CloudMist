@@ -2,6 +2,7 @@
 	require_once '../backend/gamer_verify.php';
         require_once '../backend/connect.php';
         $user = ($_SESSION['g_user']); 
+        
         if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
             $curPassword = $_POST['cur_password'];
@@ -54,11 +55,12 @@
                 <li><a href="#">PROFILE</a></li>
                 <li><a href="gamelist.php">GAMELIST</a></li>
                 <li><a href="shop.php">SHOP</a></li>
-                <li><a href="#">FRIENDS</a></li>
+                <li><a href="friends.php">FRIENDS</a></li>
             </ul>
         </div>
         
         <div id="content">
+            <h1>PROFILE</h1>
             <h3>Change Password</h3>
             <form method="post" action="profile.php" >
             
