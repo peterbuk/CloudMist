@@ -2,16 +2,17 @@
     require_once '../backend/connect.php';
 
     // check if fields are posted
-    if (isset($_POST['c_name']) && isset($_POST['location']) && isset($_POST['status'])) {
+    if (isset($_POST['c_name']) && isset($_POST['password']) && isset($_POST['location'])) {
         $c_name = $_POST['c_name'];
+        $password = $_POST['password'];
         $location = $_POST['location'];
-        $status = $_POST['status'];
+        $status = "Pending";
         
         // check for non-empty
-        if (!empty($c_name) && !empty($location) && !empty($status)) {
+        if (!empty($c_name) && !empty($password) && !empty($location)) {
             
-            // check for location requirement of >5 characters
-            if (strlen($location) > 5) {
+            // check for password requirement of >5 characters
+            if (strlen($password) > 5) {
                 
                 // check that username doesn't already exist
                 $username_check_q = "SELECT * "
@@ -21,8 +22,8 @@
                 
                 if ($result->num_rows == 0) {
                     // finally okay to create user
-                    $create_comp_q = "INSERT INTO company "
-                            . "VALUES ('$c_name', '$location', '$status')";
+                    $create_comp_q = "INSERT INTO company (c_name, password, location, status)" 
+                            . "VALUES ('$c_name', '$password', '$location', '$status')";
                     $result = mysqli_query($conn, $create_comp_q);
                     
                     if ($result) {
@@ -78,11 +79,11 @@
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input class="form-field" type="text" name="location"></td>
+                        <td><input class="form-field" type="password" name="password"></td>
                     </tr>
                     <tr>
                         <td>Location:</td>
-                        <td><input class="form-field" type="text" name="status"></td>
+                        <td><input class="form-field" type="text" name="location"></td>
                     </tr>
                     <tr>
                         <td></td>

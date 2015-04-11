@@ -26,7 +26,7 @@
     
     <div class="mid-content">
         <h1>Company Log in below.</h1>
-        <form method="post" action="company_index.php">
+        <form method="post" action="company_add.php">
             <table class="form-field">
                 <tr>
                     <td>Username:</td>

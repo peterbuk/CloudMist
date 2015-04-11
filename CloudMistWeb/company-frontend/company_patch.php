@@ -1,5 +1,5 @@
 <?php
-    require '../backend/reviewer_verify.php';
+    require '../backend/company_verify.php';
     
     //check if content posted
     if (isset($_POST['content']) && isset($_POST['game_id']) && isset($_POST['score'])) {
@@ -65,27 +65,16 @@
         </header>
     
 	<div class="container">
-            <form method="post" action="reviewer_form.php">
-                <p> Please fill in the fields below: </p>
-                <div class="ddFields">
-                <?php getGameList() ?>
-                <select class="form-field" name="score">
-                    <option value=""> Select Score </option>
-                    <option value="1"> 1 </option>
-                    <option value="2"> 2 </option>
-                    <option value="3"> 3 </option>
-                    <option value="4"> 4 </option>
-                    <option value="5"> 5 </option>
-                    <option value="6"> 6 </option>
-                    <option value="7"> 7 </option>
-                    <option value="8"> 8 </option>
-                    <option value="9"> 9 </option>
-                    <option value="10"> 10 </option>
-                </select>
-                </div>
-                <textarea class="form-field" name="content" rows="9" cols="75" placeholder="Please enter the review"></textarea>
-                <input class="form-field" type="submit" value="  Submit  ">
-            </form>
+            <div id="sidebar">
+		<ul id="sideButton">
+                    <li><a href="company_add.php">ADD GAME</a></li>
+                    <li><a href="company_patch.php">PATCH GAME</a></li>
+		</ul>
+            </div>
+            <div id="Add">
+                
+            </div>
+            
 	</div>
     
         <p> <?php 
