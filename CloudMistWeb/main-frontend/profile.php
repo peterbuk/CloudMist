@@ -7,7 +7,6 @@
             $curPassword = $_POST['cur_password'];
             $newPassword = $_POST['new_password'];
             $conPassword = $_POST['con_password'];
-			
         
             $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
             $result = mysqli_query($conn,$query) or die(mysqli_error());
@@ -15,29 +14,21 @@
             if ($result && ($newPassword == $conPassword))
             {
                 $query = "UPDATE gamer SET password='$newPassword'";
-                
                 $result = mysqli_query($conn, $query) or die(mysqli_error());
             }
         }
        
         if (isset($_POST['cc_change']))
         {
-            
             $ccChange = $_POST['cc_change'];
-            
             $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
-            
             $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
         
         if (isset($_POST['adrs_change']))
         {
             $adrsChange = $_POST['adrs_change'];  
-            
-            echo $adrsChange;
-            
             $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
-            
             $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
 		
