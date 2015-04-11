@@ -58,18 +58,19 @@ function haveGame() {
 
 function listReviews() {
     require '../backend/connect.php';
+    $game_id = filter_input(INPUT_GET, 'game_id');
     $sql_request = "SELECT * FROM review WHERE game_id ='$game_id'";
     $result = mysqli_query($conn, $sql_request);
     if($result->num_rows > 0){
         while($row = $result -> fetch_assoc()){
-            echo "<table class='review'>"
+            echo "<div class='news_item'><table class='review'>"
                     . "<tr><td>Reviewer: </td>"
                     . "<td>".$row["r_user"]."</td></tr>"
                     . "<tr><td>Score: </td>"
                     . "<td>".$row["score"]."/10 </td></tr>"
                     . "<tr><td>Content:</td>"
                     . "<td>".$row["content"]."</td></tr>"
-                    . "</table>";
+                    . "</table></div>";
         }
     }
 }
@@ -105,6 +106,7 @@ function listReviews() {
             <div id="content">
                 <?php currentGameDiv();
                         haveGame();
+                        listReviews();
                 ?>
             </div>
         </div>
