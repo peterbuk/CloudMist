@@ -10,6 +10,10 @@ body {
     border: 1px solid black;
 }
 
+.login-table table, .login-table tr, .login-table th, .login-table td {
+    border: 0;
+}
+
 th {
     font-family: 'PT Sans', sans-serif;
     font-size: 18px;
