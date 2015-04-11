@@ -14,6 +14,9 @@
         function register_guser() {
             location.href = "register_guser.php";
         }
+        function reviewer() {
+            location.href= "../reviewer-frontend/reviewer_login.php";
+        }
     </script>
 </head>
      
@@ -40,6 +43,7 @@
                     <td></td>
                     <td></td>
                     <td><input type="button" value="Register" onclick="register_guser()"></td>
+                    <td><input type="button" value="Reviewer Log in" onclick="reviewer()"></td>
                 </tr>
             </table>
         </form>

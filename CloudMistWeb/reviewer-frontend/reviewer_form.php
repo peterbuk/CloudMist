@@ -39,6 +39,7 @@
             }*/
             
             echo "<select class='form-field' name='game_id'>";
+            printf("<option value= ''> Select a Game </option>");
             while ($row = $result -> fetch_assoc()) {
                 printf("<option value= %s> %s </option>", $row['game_id'], $row['name']);
             }
@@ -53,7 +54,7 @@
 
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../css/stylesheet.css">
+<link rel="stylesheet" href="../css/reviewerstyle.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <head>
 </head>
@@ -65,9 +66,11 @@
     
 	<div class="container">
             <form method="post" action="reviewer_form.php">
+                <p> Please fill in the fields below: </p>
                 <div class="ddFields">
                 <?php getGameList() ?>
                 <select class="form-field" name="score">
+                    <option value=""> Select Score </option>
                     <option value="1"> 1 </option>
                     <option value="2"> 2 </option>
                     <option value="3"> 3 </option>
