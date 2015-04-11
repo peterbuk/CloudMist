@@ -3,16 +3,10 @@ CPSC471
 -->
 
 <?php
-
-	
 	require_once '../backend/gamer_verify.php';
-        echo(($_SESSION['username']));
+        require_once '../backend/connect.php';
         $user = ($_SESSION['username']); 
-        echo $user;
-    
-         require_once '../backend/connect.php';
 
-/*
         if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
             $curPassword = $_POST['cur_password'];
@@ -20,7 +14,7 @@ CPSC471
             $conPassword = $_POST['con_password'];
 			
         
-            $query = "SELECT password FROM gamer WHERE password='$curPassword'";
+            $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
 
             $result = mysqli_query($conn,$query) or die(mysqli_error());
             
@@ -30,15 +24,14 @@ CPSC471
                 
                 $result = mysqli_query($conn, $query) or die(mysqli_error());
             }
-        }*/
-       echo 'hello';
+        }
+       
         if (isset($_POST['cc_change']))
         {
-            echo 'hello2';
+            
             $ccChange = $_POST['cc_change'];
-            echo $ccChange;
-          
-            $query = "UPDATE payment_info SET credit_card='$ccChange'";  
+            
+            $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
             
             $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
@@ -49,7 +42,7 @@ CPSC471
             
             echo $adrsChange;
             
-            $query = "UPDATE payment_info SET billing_address='$adrsChange'";
+            $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
             
             $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
