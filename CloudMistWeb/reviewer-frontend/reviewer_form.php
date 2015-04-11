@@ -83,7 +83,7 @@
                     <option value="10"> 10 </option>
                 </select>
                 </div>
-                <textarea class="form-field" name="content" rows="4" cols="50"></textarea>
+                <textarea class="form-field" name="content" rows="9" cols="75" placeholder="Please enter the review"></textarea>
                 <input class="form-field" type="submit" value="  Submit  ">
             </form>
 	</div>
