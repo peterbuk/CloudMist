@@ -30,7 +30,6 @@
                     .'</p>';
         }
 
-        
         echo '<form method="post" action="friends.php" >'
                 .'<h3>Add Friend</h3>'
                 .'<table border="0" >'
@@ -44,26 +43,21 @@
                 .'</table>'
             .'</form>';
         
-        
         if (isset($_POST['add_friend']))
         {
             $addFriend = $_POST['add_friend'];
 
-            $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
-            $result = mysqli_query($conn,$query);
-            
-            $row = $result -> fetch_assoc();
-            echo $row["f1_user"];
-            
-            if($result)
+            if(!empty($_POST['add_friend']))
             {
-                $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
-                $result = mysqli_query($conn, $query);
-                header("Refresh: 0");
-            }
-            else 
-            {
-                echo 'Add friend failed.';
+                $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
+                $result = mysqli_query($conn,$query);
+
+                if($result)
+                {
+                    $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
+                    $result = mysqli_query($conn, $query);
+                    header("Refresh: 0");
+                }
             }
         }
     }		
