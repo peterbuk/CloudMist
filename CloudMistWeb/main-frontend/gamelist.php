@@ -44,6 +44,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel='stylesheet' href='../css/shopstyle.css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     <script>
         function logoffjs() {

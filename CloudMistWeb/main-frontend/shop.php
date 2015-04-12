@@ -49,6 +49,7 @@ CPSC471
 <link rel="stylesheet" href="../css/stylesheet.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' 
       rel='stylesheet' type='text/css'>
+<link href='../css/shopstyle.css' rel='stylesheet'>
 
     <script>
         function logoffjs() {

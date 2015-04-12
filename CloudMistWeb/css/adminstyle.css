@@ -6,6 +6,10 @@ body {
     background: #f8ebd0 ;
 }
 
+#sideButton li:hover {
+    background-color:#f8ebd0;
+}
+
 .admin-table table, tr, th, td {
     border: 1px solid black;
 }
