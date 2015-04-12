@@ -43,9 +43,9 @@
                 .'</table>'
             .'</form>';
         
-        if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
+        if (!empty($_POST['cur_password']) && !empty($_POST['new_password']) && !empty($_POST['con_password']))
         {
-            if(!empty($_POST['cur_password']) && !empty($_POST['new_password']) && !empty($_POST['con_password']))
+            if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
             {
                 $curPassword = $_POST['cur_password'];
                 $newPassword = $_POST['new_password'];
@@ -54,52 +54,35 @@
                 $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
                 $result = mysqli_query($conn,$query);
 
-                if ($result && ($newPassword == $conPassword))
+                if ($result->num_rows != 0 && ($newPassword == $conPassword))
                 {
                     $query = "UPDATE gamer SET password='$newPassword' WHERE g_user='$user'";
                     $result = mysqli_query($conn, $query);
                 }
             }
         }
-        
-        if (isset($_POST['cc_change']))
+        else if (!empty($_POST['cc_change']) && !empty($_POST['adrs_change']))
         {
-            if(!empty($_POST['cc_change']))
+            if (isset($_POST['cc_change']) && isset($_POST['adrs_change']))
             {
                 $ccChange = $_POST['cc_change'];
-                $query = "SELECT credit_card FROM payment_info WHERE g_user='$user'";
-                $result = mysqli_query($conn, $query);
-                
-                if($result->num_rows == 0)
-                {
-                    $query = "INSERT INTO payment_info (credit_card, g_user) VALUES ('$ccChange', '$user')";  
-                    $result = mysqli_query($conn, $query);
-                }
-                else
-                {
-                    $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
-                    $result = mysqli_query($conn, $query);
-                }
-            }
-        }
-        
-        if (isset($_POST['adrs_change']))
-        {
-            if(!empty($_POST['adrs_change']))
-            {
                 $adrsChange = $_POST['adrs_change']; 
-                $query = "SELECT billing_address FROM payment_info WHERE g_user='$user'";
-                $result = mysqli_query($conn, $query);
+                
+                if(is_numeric($_POST['cc_change']))
+                {
+                    $query = "SELECT credit_card, billing_address FROM payment_info WHERE g_user='$user'";
+                    $result = mysqli_query($conn, $query);
 
-                if($result->num_rows == 0)
-                {
-                    $query = "INSERT INTO payment_info (billing_address, g_user) VALUES ('$adrsChange', '$user')";
-                    $result = mysqli_query($conn, $query);
-                }
-                else
-                {
-                    $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
-                    $result = mysqli_query($conn, $query);
+                    if($result->num_rows == 0)
+                    {
+                        $query = "INSERT INTO payment_info (credit_card, billing_address, g_user) VALUES ('$ccChange', '$adrsChange', '$user')";  
+                        $result = mysqli_query($conn, $query);
+                    }
+                    else
+                    {
+                        $query = "UPDATE payment_info SET credit_card='$ccChange', billing_address='$adrsChange' WHERE g_user='$user'";  
+                        $result = mysqli_query($conn, $query);
+                    }
                 }
             }
         }
