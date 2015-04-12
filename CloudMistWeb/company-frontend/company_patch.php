@@ -87,14 +87,14 @@
                         <input class="form-field" type="submit" value="  Submit  ">
                     </form>
                 </div>
+                <p> <?php 
+                     if (isset($msg))
+                    printf($msg);
+                ?>
+        </p>
             </div>
 	</div>
     
-        <p> <?php 
-            if (isset($msg))
-                printf($msg);
-            ?>
-        </p>
         <script>
 	//Grab file
 	document.getElementById('get_file').onclick = function() {
