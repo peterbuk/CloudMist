@@ -1,46 +1,68 @@
 <?php        
     require_once '../backend/gamer_verify.php';
-    $user = ($_SESSION['g_user']);
+    require_once '../backend/connect.php';
+    $user = ($_SESSION['g_user']); 
 
-        function getList()
-        {          
-            require '../backend/connect.php';
-            $user = ($_SESSION['g_user']);
+    function getFriends()
+    {          
+        require '../backend/connect.php';
+        $user = ($_SESSION['g_user']); 
+        echo "<h3>Friends</h3>";
+        
+        $query = "SELECT f2_user FROM friend_of WHERE f1_user='$user'";
+        $result = mysqli_query($conn,$query);
+
+        if($result->num_rows > 0)
+        {
+            echo "<p>";
             
-            $query = "SELECT f2_user FROM friend_of WHERE f1_user='$user'";
+            while($row = $result -> fetch_assoc())
+            {
+                echo $row["f2_user"]."</br>";
+            }
+
+            echo "</p>";
+            echo "</br>";
+        }
+        else
+        {
+            echo "<p>"."No friends found."."</p>";
+        }
+
+        
+        echo '<form method="post" action="friends.php" >'
+                .'<h3>Add Friend</h3>'
+                .'<table border="0" >'
+                    .'<tr>'
+                        .'<td><p><b>Name</b></p></td>'
+                        .'<td><input type="text" name="add_friend"></td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td><br/><input type="submit" value="Add"/></td>'
+                    .'</tr>'
+                .'</table>'
+            .'</form>';
+        
+        
+        if (isset($_POST['add_friend']))
+        {
+            $addFriend = $_POST['add_friend'];
+
+            $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
             $result = mysqli_query($conn,$query);
             
-            if($result->num_rows > 0)
+            if($result)
             {
-                while($row = $result -> fetch_assoc())
-                {
-                    echo $row["f2_user"]."</br>";
-                }
-                
-                echo "</br>";
+                $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
+                $result = mysqli_query($conn, $query);
+                header("Refresh: 0");
             }
-            else
+            else 
             {
-                echo "No friends found.";
+                echo 'Add friend failed.';
             }
-            
-            if (isset($_POST['add_friend']))
-            {
-                $addFriend = $_POST['add_friend'];
-                
-                $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
-                $result = mysqli_query($conn,$query);
-                
-                if($result)
-                {
-                    $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
-                    $result = mysqli_query($conn, $query);
-                    header("Refresh: 0");
-                }
-            }
-        
         }
-		
+    }		
 ?>
 
 <!DOCTYPE html>
@@ -78,25 +100,7 @@
         
         <div id="content">
             <h1>FRIENDS</h1>
-            <h3>Friends</h3>
-            <?php
-            
-            getList()
-            
-            ?>
-            <form method="post" action="friends.php" >
-                <h3>Add Friend</h3>
-                <table border="0" >
-                    <tr>
-                        <td><b>Name</b></td>
-                        <td><input type="text" name="add_friend"></td>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <td><input type="submit" value="Add"/></td>
-                    </tr>
-                </table>
-            </form>	
+            <?php getFriends() ?>
         </div>
     </div>
 </body>
