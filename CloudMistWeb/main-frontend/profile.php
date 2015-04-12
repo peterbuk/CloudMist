@@ -1,6 +1,5 @@
 <?php
     require_once '../backend/gamer_verify.php';
-    require_once '../backend/connect.php';
     $user = ($_SESSION['g_user']); 
 
     function getProfile()
@@ -48,13 +47,17 @@
         {
             if(!empty($_POST['cur_password']) && !empty($_POST['new_password']) && !empty($_POST['con_password']))
             {
+                $curPassword = $_POST['cur_password'];
+                $newPassword = $_POST['new_password'];
+                $conPassword = $_POST['con_password'];
+                
                 $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
-                $result = mysqli_query($conn,$query) or die(mysqli_error());
+                $result = mysqli_query($conn,$query);
 
                 if ($result && ($newPassword == $conPassword))
                 {
                     $query = "UPDATE gamer SET password='$newPassword' WHERE g_user='$user'";
-                    $result = mysqli_query($conn, $query) or die(mysqli_error());
+                    $result = mysqli_query($conn, $query);
                 }
             }
         }
@@ -64,8 +67,19 @@
             if(!empty($_POST['cc_change']))
             {
                 $ccChange = $_POST['cc_change'];
-                $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
+                $query = "SELECT credit_card FROM payment_info WHERE g_user='$user'";
                 $result = mysqli_query($conn, $query);
+                
+                if($result->num_rows == 0)
+                {
+                    $query = "INSERT INTO payment_info (credit_card, g_user) VALUES ('$ccChange', '$user')";  
+                    $result = mysqli_query($conn, $query);
+                }
+                else
+                {
+                    $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
+                    $result = mysqli_query($conn, $query);
+                }
             }
         }
         
@@ -73,9 +87,20 @@
         {
             if(!empty($_POST['adrs_change']))
             {
-            $adrsChange = $_POST['adrs_change'];  
-            $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
-            $result = mysqli_query($conn, $query);
+                $adrsChange = $_POST['adrs_change']; 
+                $query = "SELECT billing_address FROM payment_info WHERE g_user='$user'";
+                $result = mysqli_query($conn, $query);
+
+                if($result->num_rows == 0)
+                {
+                    $query = "INSERT INTO payment_info (billing_address, g_user) VALUES ('$adrsChange', '$user')";
+                    $result = mysqli_query($conn, $query);
+                }
+                else
+                {
+                    $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
+                    $result = mysqli_query($conn, $query);
+                }
             }
         }
     }

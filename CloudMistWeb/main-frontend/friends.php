@@ -9,7 +9,7 @@
         $user = ($_SESSION['g_user']); 
         echo "<h3>Friends</h3>";
         $query = "SELECT f2_user FROM friend_of WHERE f1_user='$user'";
-        $result = mysqli_query($conn,$query);
+        $result = mysqli_query($conn, $query);
 
         if($result->num_rows > 0)
         {
@@ -50,7 +50,7 @@
             if(!empty($_POST['add_friend']))
             {
                 $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
-                $result = mysqli_query($conn,$query);
+                $result = mysqli_query($conn, $query);
 
                 if($result)
                 {
