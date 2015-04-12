@@ -3,27 +3,34 @@
     require   '../backend/connect.php';
     
     //check if content posted
-    if (isset($_POST['content']) && isset($_POST['game_id']) && isset($_POST['score'])) {
-        $game_id = $_POST['game_id'];
-        $content = $_POST['content'];
-        $score = $_POST['score'];
-        $r_user = $_SESSION['username'];
+    if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description']) && isset($_POST['release_date'])
+            && isset($_POST['genre']) && isset($_POST['game_data']) && isset($_POST['patch_version'])) {
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $release_date = $_POST['release_date'];
+        $genre = $_POST['genre'];
+        $game_data = $_POST['game_data'];
+        $patch_version = $_POST['patch_version'];
+        $c_name = $_SESSION['c_name'];
         
         //check for non-empty content
-        if (!empty($content)){
-            $r_insert_query = "INSERT INTO review (content, score, game_id, r_user)"
-                    . "VALUES ('$content', $score, $game_id, '$r_user')";
-            $result = mysqli_query($conn, $r_insert_query);
+        if (!empty($name) && !empty($price) && !empty($description) && !empty($release_date) && !empty($genre)
+                && !empty($game_data) && !empty($patch_version) && !empty($c_name)){
+            $g_insert_query = "INSERT INTO game (name, price, description, release_date, genre, game_data,"
+                    . "c_name, patch_version)"
+                    . "VALUES ('$name', $price, '$description', '$release_date', '$genre', $game_data, '$c_name', '$patch_version')";
+            $result = mysqli_query($conn, $g_insert_query);
             
                 if ($result) {
-                    $msg = "Game review has been submitted";
+                    $msg = "Game has been submitted";
                 }
                 else {
-                    $msg= "Error: Could not submit review";
+                    $msg= "Error: Could not submit game";
                 }
         }
         else {
-            $msg = "Error: Please enter review text";
+            $msg = "Error: Please fill in all fields";
         }
     }
 ?>
@@ -56,7 +63,7 @@
             </div>
             <div id="content">
                 
-                <form method="post" action="reviewer_form.php">
+                <form method="post" action="company_add.php">
                     <table class="form-field">
                         <col width="500">
                         <col width="500">
@@ -92,7 +99,7 @@
                             </td>
                             <td> Version Number</td>
                             <td>
-                                <input type="text" class="form-field" name="path_version">
+                                <input type="text" class="form-field" name="patch_version">
                             </td>
                         </tr>
                         <tr>
