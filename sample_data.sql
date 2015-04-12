@@ -115,7 +115,7 @@ INSERT INTO gamer VALUES (	"bob",
 
 INSERT INTO gamer VALUES (	"cindy",
 							"123456",
-							"Active",
+							"Banned",
 							"kta");
 
 INSERT INTO gamer VALUES (	"alice",
