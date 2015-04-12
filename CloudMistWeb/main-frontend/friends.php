@@ -43,12 +43,11 @@
                 .'</table>'
             .'</form>';
         
-        if (isset($_POST['add_friend']))
+        if (!empty($_POST['add_friend']))
         {
-            $addFriend = $_POST['add_friend'];
-
-            if(!empty($_POST['add_friend']))
+            if(isset($_POST['add_friend']) && $_POST['add_friend'] != $user)
             {
+                $addFriend = $_POST['add_friend'];
                 $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
                 $result = mysqli_query($conn, $query);
 
@@ -56,6 +55,18 @@
                 {
                     $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
                     $result = mysqli_query($conn, $query);
+                    
+                    if ($result)
+                    {
+                        echo '</br>'
+                        .'Success!';
+                    }
+                    else
+                    {
+                        echo '</br>'
+                        .'Friend UPDATE Error!!';
+                    }
+                    
                     header("Refresh: 0");
                 }
                 else

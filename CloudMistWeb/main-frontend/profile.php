@@ -11,15 +11,15 @@
              .'<form method="post" action="profile.php" >'
                 .'<table border="0" >'
                     .'<tr>'
-                        .'<td><p><b>Current Password</b></p></td>'
+                        .'<td><p>Current Password</p></td>'
                         .'<td><input type="password" name="cur_password"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><p><b>New Password</b></p></td>'
+                        .'<td><p>New Password</p></td>'
                         .'<td><input type="password" name="new_password"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><p><b>Confirm Password</b></p></td>'
+                        .'<td><p>Confirm Password</p></td>'
                         .'<td><input type="password" name="con_password"></td>'
                     .'</tr>'
                     .'<tr>'
@@ -30,11 +30,11 @@
                 .'<h3>Change Payment Info</h3>'
                     .'<table border="0" >'
                     .'<tr>'
-                        .'<td><p><b>Credit Card</b></p></td>'
+                        .'<td><p>Credit Card</p></td>'
                         .'<td><input type="text" name="cc_change"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><p><b>Address</b></p></td>'
+                        .'<td><p>Address</p></td>'
                         .'<td><input type="text" name="adrs_change"></td>'
                     .'</tr>'
                     .'<tr>'
@@ -58,6 +58,23 @@
                 {
                     $query = "UPDATE gamer SET password='$newPassword' WHERE g_user='$user'";
                     $result = mysqli_query($conn, $query);
+                    
+                    if ($result)
+                    {
+                        echo '</br>'
+                        .'Success!';
+                    }
+                    else
+                    {
+                        echo '</br>'
+                        .'Password UPDATE Error!!';
+                    }
+                    
+                }
+                else
+                {
+                    echo '</br>'
+                        .'Change password failed.';
                 }
             }
         }
@@ -77,12 +94,39 @@
                     {
                         $query = "INSERT INTO payment_info (credit_card, billing_address, g_user) VALUES ('$ccChange', '$adrsChange', '$user')";  
                         $result = mysqli_query($conn, $query);
+                        
+                        if ($result)
+                        {
+                            echo '</br>'
+                            .'Success!';
+                        }
+                        else
+                        {
+                            echo '</br>'
+                            .'CreditCard INSERT Error!!';
+                        }
                     }
                     else
                     {
                         $query = "UPDATE payment_info SET credit_card='$ccChange', billing_address='$adrsChange' WHERE g_user='$user'";  
                         $result = mysqli_query($conn, $query);
+                        
+                        if ($result)
+                        {
+                            echo '</br>'
+                            .'Success!';
+                        }
+                        else
+                        {
+                            echo '</br>'
+                            .'CreditCard UPDATE Error!!';
+                        }
                     }
+                }
+                else
+                {
+                    echo '</br>'
+                        .'Credit Card and/or Address change failed.';
                 }
             }
         }
