@@ -7,6 +7,7 @@
     {
         require '../backend/connect.php';
         $user = ($_SESSION['g_user']); 
+        
         echo '<h3>Change Password</h3>'
              .'<form method="post" action="profile.php" >'
                 .'<table border="0" >'

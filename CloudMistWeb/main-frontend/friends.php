@@ -8,7 +8,6 @@
         require '../backend/connect.php';
         $user = ($_SESSION['g_user']); 
         echo "<h3>Friends</h3>";
-        
         $query = "SELECT f2_user FROM friend_of WHERE f1_user='$user'";
         $result = mysqli_query($conn,$query);
 
@@ -26,7 +25,9 @@
         }
         else
         {
-            echo "<p>"."No friends found."."</p>";
+            echo '<p>'
+                    .'No friends found.'
+                    .'</p>';
         }
 
         
@@ -50,6 +51,9 @@
 
             $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
             $result = mysqli_query($conn,$query);
+            
+            $row = $result -> fetch_assoc();
+            echo $row["f1_user"];
             
             if($result)
             {
