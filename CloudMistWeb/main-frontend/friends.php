@@ -52,11 +52,16 @@
                 $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
                 $result = mysqli_query($conn, $query);
 
-                if($result)
+                if($result->num_rows != 0)
                 {
                     $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
                     $result = mysqli_query($conn, $query);
                     header("Refresh: 0");
+                }
+                else
+                {
+                    echo '</br>'
+                        .'Add friend failed.';
                 }
             }
         }
