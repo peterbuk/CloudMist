@@ -92,6 +92,20 @@ LOGIN HEADER
     font-family: 'PT Sans', sans-serif;
 }
 
+//For Header
+.header {
+    width:50%;
+   
+}
+
+
+.username {
+    padding-top: 15px;
+    color:#fff;
+    width: 65%;
+    margin:auto;
+    text-align: right;
+}
 
 /*
     FORM ITEMS
