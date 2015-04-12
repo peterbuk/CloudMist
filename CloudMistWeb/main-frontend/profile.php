@@ -1,38 +1,38 @@
 <?php
-	require_once '../backend/gamer_verify.php';
-        require_once '../backend/connect.php';
-        $user = ($_SESSION['g_user']); 
-        
-        if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
+    require_once '../backend/gamer_verify.php';
+    require_once '../backend/connect.php';
+    $user = ($_SESSION['g_user']); 
+
+    if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
+    {
+        $curPassword = $_POST['cur_password'];
+        $newPassword = $_POST['new_password'];
+        $conPassword = $_POST['con_password'];
+
+        $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
+        $result = mysqli_query($conn,$query) or die(mysqli_error());
+
+        if ($result && ($newPassword == $conPassword))
         {
-            $curPassword = $_POST['cur_password'];
-            $newPassword = $_POST['new_password'];
-            $conPassword = $_POST['con_password'];
-        
-            $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
-            $result = mysqli_query($conn,$query) or die(mysqli_error());
-            
-            if ($result && ($newPassword == $conPassword))
-            {
-                $query = "UPDATE gamer SET password='$newPassword'";
-                $result = mysqli_query($conn, $query) or die(mysqli_error());
-            }
+            $query = "UPDATE gamer SET password='$newPassword'";
+            $result = mysqli_query($conn, $query) or die(mysqli_error());
         }
-       
-        if (isset($_POST['cc_change']))
-        {
-            $ccChange = $_POST['cc_change'];
-            $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
-            $result = mysqli_query($conn, $query);
-        }
-        
-        if (isset($_POST['adrs_change']))
-        {
-            $adrsChange = $_POST['adrs_change'];  
-            $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
-            $result = mysqli_query($conn, $query);
-        }
-		
+    }
+
+    if (isset($_POST['cc_change']))
+    {
+        $ccChange = $_POST['cc_change'];
+        $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
+        $result = mysqli_query($conn, $query);
+    }
+
+    if (isset($_POST['adrs_change']))
+    {
+        $adrsChange = $_POST['adrs_change'];  
+        $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
+        $result = mysqli_query($conn, $query);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -42,21 +42,30 @@
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' 
       rel='stylesheet' type='text/css'>
 
+    <script>
+        function logoffjs() {
+            location.href = "login.php";
+        }
+    </script>
 </head>
 
 <body>
-    <header>
-        <h1>Welcome <?php printf($_SESSION['g_user']); ?></h1>
-    </header>
+    <div id="sidebar">
+        <div class="logo_title">Cloud Mist</div>
+        <ul id="sideButton">
+            <a href="home.php"><li>HOME</li></a>
+            <a href="profile.php"><li>PROFILE</li></a>
+            <a href="gamelist.php"><li>GAME LIST</li></a>
+            <a href="shop.php"><li>SHOP</li></a>
+            <a href="friends.php"><li>FRIENDS</li></a>
+            <a href="login.php" onclick="logoffjs()"><li id="logoff">LOGOFF</li></a>
+        </ul>
+    </div>
     
     <div class="container">
-        <div id="sidebar">
-            <ul id="sideButton">
-                <li><a href="#">PROFILE</a></li>
-                <li><a href="gamelist.php">GAME LIST</a></li>
-                <li><a href="shop.php">SHOP</a></li>
-                <li><a href="friends.php">FRIENDS</a></li>
-            </ul>
+        <div class="header">
+            <h2 class="username">Welcome <?php echo $user; ?></h2>
+            <div class="clear"></div>
         </div>
         
         <div id="content">

@@ -1,5 +1,9 @@
 <?php
     require_once '../backend/connect.php';
+    
+    if (session_status() != PHP_SESSION_NONE) {
+        session_destroy();
+    }
 ?>
 
 
