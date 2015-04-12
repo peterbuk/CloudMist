@@ -3,36 +3,76 @@
     require_once '../backend/connect.php';
     $user = ($_SESSION['g_user']); 
 
-    if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
+    function getProfile()
     {
-        $curPassword = $_POST['cur_password'];
-        $newPassword = $_POST['new_password'];
-        $conPassword = $_POST['con_password'];
-
-        $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
-        $result = mysqli_query($conn,$query) or die(mysqli_error());
-
-        if ($result && ($newPassword == $conPassword))
+        require '../backend/connect.php';
+        $user = ($_SESSION['g_user']); 
+        echo '<h3>Change Password</h3>'
+             .'<form method="post" action="profile.php" >'
+                .'<table border="0" >'
+                    .'<tr>'
+                        .'<td><p><b>Current Password</b></p></td>'
+                        .'<td><input type="password" name="cur_password"></td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td><p><b>New Password</b></p></td>'
+                        .'<td><input type="password" name="new_password"></td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td><p><b>Confirm Password</b></p></td>'
+                        .'<td><input type="password" name="con_password"></td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td></br><input type="submit" value="Update"/></td>'
+                    .'</tr>'
+                .'</table>'
+                .'</br><hr></br>'
+                .'<h3>Change Payment Info</h3>'
+                    .'<table border="0" >'
+                    .'<tr>'
+                        .'<td><p><b>Credit Card</b></p></td>'
+                        .'<td><input type="text" name="cc_change"></td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td><p><b>Address</b></p></td>'
+                        .'<td><input type="text" name="adrs_change"></td>'
+                    .'</tr>'
+                    .'<tr>'
+                        .'<td></br><input type="submit" value="Update"/></td>'
+                    .'</tr>'
+                .'</table>'
+            .'</form>';
+        
+        if (isset($_POST['cur_password']) && isset($_POST['new_password']) && isset($_POST['con_password']))
         {
-            $query = "UPDATE gamer SET password='$newPassword'";
-            $result = mysqli_query($conn, $query) or die(mysqli_error());
+            $curPassword = $_POST['cur_password'];
+            $newPassword = $_POST['new_password'];
+            $conPassword = $_POST['con_password'];
+
+            $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
+            $result = mysqli_query($conn,$query) or die(mysqli_error());
+
+            if ($result && ($newPassword == $conPassword))
+            {
+                $query = "UPDATE gamer SET password='$newPassword' WHERE g_user='$user'";
+                $result = mysqli_query($conn, $query) or die(mysqli_error());
+            }
+        }
+        
+        if (isset($_POST['cc_change']))
+        {
+            $ccChange = $_POST['cc_change'];
+            $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
+            $result = mysqli_query($conn, $query);
+        }
+        
+        if (isset($_POST['adrs_change']))
+        {
+            $adrsChange = $_POST['adrs_change'];  
+            $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
+            $result = mysqli_query($conn, $query);
         }
     }
-
-    if (isset($_POST['cc_change']))
-    {
-        $ccChange = $_POST['cc_change'];
-        $query = "UPDATE payment_info SET credit_card='$ccChange' WHERE g_user='$user'";  
-        $result = mysqli_query($conn, $query);
-    }
-
-    if (isset($_POST['adrs_change']))
-    {
-        $adrsChange = $_POST['adrs_change'];  
-        $query = "UPDATE payment_info SET billing_address='$adrsChange' WHERE g_user='$user'";
-        $result = mysqli_query($conn, $query);
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -70,45 +110,7 @@
         
         <div id="content">
             <h1>PROFILE</h1>
-            <h3>Change Password</h3>
-            <form method="post" action="profile.php" >
-            
-                <table border="0" >
-                    <tr>
-                        <td><b>Current Password</b></td>
-                        <td><input type="password" name="cur_password"></td>
-                    </tr>
-                    <tr>
-                        <td><b>New Password</b></td>
-                        <td><input type="password" name="new_password"></td>
-                    </tr>
-                    <tr>
-                        <td><b>Confirm Password</b></td>
-                        <td><input type="password" name="con_password"></td>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <td><input type="submit" value="Update"/></td>
-                    </tr>
-                </table>
-
-                <h3>Change Payment Info</h3>
-
-                <table border="0" >
-                    <tr>
-                        <td><b>Credit Card</b></td>
-                        <td><input type="text" name="cc_change"></td>
-                    </tr>
-                    <tr>
-                        <td><b>Address</b></td>
-                        <td><input type="text" name="adrs_change"></td>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <td><input type="submit" value="Update"/></td>
-                    </tr>
-                </table>
-            </form>	
+            <?php getProfile() ?>	
         </div>
     </div>
 </body>
