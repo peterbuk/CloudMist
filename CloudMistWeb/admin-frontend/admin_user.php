@@ -86,7 +86,7 @@ require '../backend/admin_verify.php';
 <html>
 
 <head>
-    <title>Cloud Mist - Admin Profile</title>
+    <title>Cloud Mist - Admin Panel</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/adminstyle.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' 
