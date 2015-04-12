@@ -1,5 +1,5 @@
 <?php
-    require '../backend/company_verify.php';
+    require_once '../backend/company_verify.php';
     
     //check if content posted
     if (isset($_POST['name']) && isset($_POST['price']) && isset($_POST['description']) && isset($_POST['release_date'])
@@ -18,7 +18,7 @@
                 && !empty($game_data) && !empty($patch_version) && !empty($c_name)){
             $g_insert_query = "INSERT INTO game (name, price, description, release_date, genre, game_data,"
                     . "c_name, patch_version)"
-                    . "VALUES ('$name', $price, '$description', '$release_date', '$genre', $game_data, '$c_name', '$patch_version')";
+                    . "VALUES ('$name', '$price', '$description', '$release_date', '$genre', '$game_data', '$c_name', '$patch_version')";
             $result = mysqli_query($conn, $g_insert_query);
             
                 if ($result) {
@@ -32,6 +32,10 @@
             $msg = "Error: Please fill in all fields";
         }
     }
+    else {
+        $msg = $_POST['name'].$_POST['price'].$_POST['description'].$_POST['genre'].$_POST['patch_version'];
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -114,6 +118,12 @@
                     </table>
                 </form>
                 
+                        <p> <?php 
+            if (isset($msg))
+                printf($msg);
+            ?>
+        </p>
+                
             </div>
             
 	</div>
@@ -125,11 +135,7 @@
 	};
         </script>
     
-        <p> <?php 
-            if (isset($msg))
-                printf($msg);
-            ?>
-        </p>
+
 </body>
 
 </html>
