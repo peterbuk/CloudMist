@@ -53,17 +53,17 @@
 </head>
 
 <body>
-        <header>
-        <h1>Welcome <?php printf($_SESSION['c_name']) ?></h1>
-        </header>
+    <div id="sidebar">
+        <ul id="sideButton">
+            <li><a href="company_add.php">ADD GAME</a></li>
+            <li><a href="company_patch.php">PATCH GAME</a></li>
+        </ul>
+    </div>
     
-	<div class="container">
-            <div id="sidebar">
-		<ul id="sideButton">
-                    <li><a href="company_add.php">ADD GAME</a></li>
-                    <li><a href="company_patch.php">PATCH GAME</a></li>
-		</ul>
-            </div>
+    <div class="container">
+            <header>
+                <h1>Welcome <?php printf($_SESSION['c_name']) ?></h1>
+            </header>
             <div id="content">
                 
                 <form method="post" action="company_add.php">
