@@ -14,12 +14,9 @@
             location.href = "register_comp.php";
         }
     </script>
-    <style>
-        h1{color:white;}
-    </style>
 </head>
      
-<body style="background-color: lightslategrey; color: white;">
+<body >
     <header>
         <h1 class="logo">Cloud Mist</h1>
     </header>

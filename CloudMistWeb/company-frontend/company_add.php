@@ -57,6 +57,8 @@
         <ul id="sideButton">
             <li><a href="company_add.php">ADD GAME</a></li>
             <li><a href="company_patch.php">PATCH GAME</a></li>
+            <li><a href="company_sales.php">SALES</a></li>
+            <li><a href="company_login.php">LOGOFF</a></li>
         </ul>
     </div>
     
