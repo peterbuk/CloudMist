@@ -2,35 +2,34 @@
     require '../backend/company_verify.php';
     
     //check if content posted
-    if (isset($_POST['content']) && isset($_POST['game_id']) && isset($_POST['score'])) {
+    if (isset($_POST['patchNum']) && isset($_POST['game_id']) && isset($_POST['game_data'])) {
         $game_id = $_POST['game_id'];
-        $content = $_POST['content'];
-        $score = $_POST['score'];
-        $r_user = $_SESSION['username'];
+        $patch_Num = $_POST['patchNum'];
+        $patch_File = $_POST['game_data'];
+        $c_user = $_SESSION['c_name'];
         
         //check for non-empty content
-        if (!empty($content)){
-            $r_insert_query = "INSERT INTO review (content, score, game_id, r_user)"
-                    . "VALUES ('$content', $score, $game_id, '$r_user')";
-            $result = mysqli_query($conn, $r_insert_query);
+        if (!empty($patch_Num)){
+            $patch_query = "UPDATE game SET patch_version='$patch_Num', game_data ='$patch_File'";
+            $result = mysqli_query($conn, $patch_query);
             
                 if ($result) {
-                    $msg = "Game review has been submitted";
+                    $msg = "Patch has been submitted";
                 }
                 else {
-                    $msg= "Error: Could not submit review";
+                    $msg= "Error: Could not submit patch";
                 }
         }
         else {
-            $msg = "Error: Please enter review text";
+            $msg = "Error: Please enter patch Number";
         }
     }
     
     function getGameList() {
         require   '../backend/connect.php';
-        
-        $g_list_query = "SELECT name,game_id "
-                . "FROM game ";
+        $c_user = $_SESSION['c_name'];
+        $g_list_query = "SELECT game_id, name, game_data, patch_version "
+                . "FROM game WHERE c_name='$c_user'";
         $result = mysqli_query($conn, $g_list_query);
         
         if ($result->num_rows > 0){
@@ -61,7 +60,7 @@
 
 <body>
         <header>
-        <h1>Welcome <?php printf($_SESSION['username']) ?></h1>
+        <h1>Welcome <?php printf($_SESSION['c_name']) ?></h1>
         </header>
     
 	<div class="container">
@@ -71,10 +70,24 @@
                     <li><a href="company_patch.php">PATCH GAME</a></li>
 		</ul>
             </div>
-            <div id="Add">
-                
+            <div id="content">
+                <h1>Patch Game</h1>
+                <div id="patch">
+                    <form method="post" action="company_patch.php">
+                        <p> Please fill in the fields below: </p>
+                        <div class="ddFields">
+                            <?php getGameList() ?>
+                            <div class="patch_version">Patch Version #: <input class="form-field" type="text" name="patchNum"></div>
+                            <div class="game_data">
+                                 Upload File: 
+                                <input type="button" id="get_file" value="Select Game Data">
+                                <input type="file" name="game_data" id="my_file">
+                            </div>
+                        </div>
+                        <input class="form-field" type="submit" value="  Submit  ">
+                    </form>
+                </div>
             </div>
-            
 	</div>
     
         <p> <?php 
@@ -82,6 +95,13 @@
                 printf($msg);
             ?>
         </p>
+        <script>
+	//Grab file
+	document.getElementById('get_file').onclick = function() {
+	document.getElementById('my_file').click();
+	};
+        </script>
+    
 </body>
 
 </html>

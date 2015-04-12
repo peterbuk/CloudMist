@@ -4,6 +4,7 @@ h1 {
     color:white;
 }
 
+
 body { 
     background-color:lightslategrey;
     margin: auto;
@@ -105,4 +106,18 @@ LOGIN HEADER
     font-family: 'PT Sans', sans-serif;
     padding: 5px;
     
+}
+
+
+
+.patch_version {
+    padding-top: 10px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+.game_data {
+    padding: 10px 0px;
+    font-family: 'PT Sans', sans-serif;
 }
