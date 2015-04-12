@@ -19,6 +19,7 @@
                     . '<th>PRICE</th>'
                     . '<th>GENRE</th>'
                     . '<th>RELEASE DATE</th>'
+                    . '<th>DOWNLOADS</th>'
                 . '</tr>';
 
             //output data
@@ -27,7 +28,8 @@
                        . "<td>".$row["description"]."</td>"
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
-                       . "<td>".$row["release_date"]."</td></tr>";
+                       . "<td>".$row["release_date"]."</td>"
+                       . "<td><a href='#'> Download </a></td></tr>";
             }
             echo "</table>";
         }

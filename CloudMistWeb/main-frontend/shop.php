@@ -18,7 +18,7 @@ CPSC471
                     . '<th>PRICE</th>'
                     . '<th>GENRE</th>'
                     . '<th>RELEASE DATE</th>'
-                    . '<th>DOWNLOAD</th>'
+                    . '<th>MORE INFO</th>'
                 . '</tr>';
 
             //output data
@@ -29,7 +29,7 @@ CPSC471
                        . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
                        . "<td>".$row["release_date"]."</td>"
-                       . '<td><a href="../main-frontend/currentGame.php?game_id='.$game_id.'"> More Info </a></td>'
+                       . '<td><a href="../main-frontend/currentGame.php?game_id='.$game_id.'"> Buy Game </a></td>'
                     . "</tr>";
             }
             echo "</tbody></table>";
