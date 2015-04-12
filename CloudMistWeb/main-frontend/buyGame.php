@@ -36,7 +36,7 @@
                  echo "<div class='confirmbtn'><button class='confirm_btn' onclick='boughtgame()'> Buy Game </button></div>";
         }
         else {
-            echo "0 results";
+            echo "You have not entered your credit card or billing information yet.";
         }    
         
     }
