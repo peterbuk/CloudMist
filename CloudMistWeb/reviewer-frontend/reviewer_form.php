@@ -60,11 +60,11 @@
 </head>
 
 <body>
+	<div class="container">
         <div class="header">
             <h1 class="username">Welcome <?php printf($_SESSION['username']); ?></h1>
         </div>
-    
-	<div class="container">
+            
             <form method="post" action="reviewer_form.php">
                 <p> Please fill in the fields below: </p>
                 <div class="ddFields">
