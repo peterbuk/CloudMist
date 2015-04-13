@@ -12,7 +12,7 @@
         $game_data = $_POST['game_data'];
         $patch_version = $_POST['patch_version'];
         $c_name = $_SESSION['c_name'];
-        
+    
         //check for non-empty content
         if (!empty($name) && !empty($price) && !empty($description) && !empty($release_date) && !empty($genre)
                 && !empty($game_data) && !empty($patch_version) && !empty($c_name)){
@@ -20,7 +20,7 @@
                     . "c_name, patch_version)"
                     . "VALUES ('$name', '$price', '$description', '$release_date', '$genre', '$game_data', '$c_name', '$patch_version')";
             $result = mysqli_query($conn, $g_insert_query);
-            
+    
                 if ($result) {
                     $msg = "Game has been submitted";
                 }
