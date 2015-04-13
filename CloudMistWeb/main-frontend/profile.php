@@ -7,19 +7,21 @@
         require '../backend/connect.php';
         $user = ($_SESSION['g_user']); 
         
-        echo '<h3>Change Password</h3>'
+        echo '<p>Fields cannot be blank.</p>'
+             .'<h3>Change Password</h3>'
+             .'<p>Password has to be at least 5 characters long.</p>'
              .'<form method="post" action="profile.php" >'
-                .'<table border="0" >'
+                .'<table class="form-field" border="0" >'
                     .'<tr>'
-                        .'<td><p>Current Password</p></td>'
+                        .'<td>Current Password</td>'
                         .'<td><input type="password" name="cur_password"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><p>New Password</p></td>'
+                        .'<td>New Password</td>'
                         .'<td><input type="password" name="new_password"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><p>Confirm Password</p></td>'
+                        .'<td>Confirm Password</td>'
                         .'<td><input type="password" name="con_password"></td>'
                     .'</tr>'
                     .'<tr>'
@@ -28,13 +30,13 @@
                 .'</table>'
                 .'</br><hr></br>'
                 .'<h3>Change Payment Info</h3>'
-                    .'<table border="0" >'
+                    .'<table class="form-field" border="0" >'
                     .'<tr>'
-                        .'<td><p>Credit Card</p></td>'
+                        .'<td>Credit Card</td>'
                         .'<td><input type="text" name="cc_change"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><p>Address</p></td>'
+                        .'<td>Address</td>'
                         .'<td><input type="text" name="adrs_change"></td>'
                     .'</tr>'
                     .'<tr>'
@@ -54,7 +56,7 @@
                 $query = "SELECT password FROM gamer WHERE password='$curPassword' AND g_user='$user'";
                 $result = mysqli_query($conn,$query);
 
-                if ($result->num_rows != 0 && ($newPassword == $conPassword))
+                if ($result->num_rows != 0 && ($newPassword == $conPassword) && strlen($newPassword) > 5)
                 {
                     $query = "UPDATE gamer SET password='$newPassword' WHERE g_user='$user'";
                     $result = mysqli_query($conn, $query);
@@ -85,7 +87,7 @@
                 $ccChange = $_POST['cc_change'];
                 $adrsChange = $_POST['adrs_change']; 
                 
-                if(is_numeric($_POST['cc_change']))
+                if(is_numeric($ccChange) && strlen($ccChange) > 16)
                 {
                     $query = "SELECT credit_card, billing_address FROM payment_info WHERE g_user='$user'";
                     $result = mysqli_query($conn, $query);
@@ -168,7 +170,7 @@
         
         <div id="content">
             <h1>PROFILE</h1>
-            <?php getProfile() ?>	
+            <?php getProfile(); ?>	
         </div>
     </div>
 </body>
