@@ -187,3 +187,13 @@ LOGIN HEADER
 #my_file{
     display:none;
 }
+
+
+.patch_version {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.game_data {
+    padding: 10px 0px;;
+    font-family: 'PT Sans', sans-serif;
+}
