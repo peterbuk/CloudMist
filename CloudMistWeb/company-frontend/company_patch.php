@@ -60,6 +60,7 @@
 
 <body>   
     <div id="sidebar">
+        <div class="logo_title">Cloud Mist</div>
         <ul id="sideButton">
             <li><a href="company_add.php">ADD GAME</a></li>
             <li><a href="company_patch.php">PATCH GAME</a></li>
