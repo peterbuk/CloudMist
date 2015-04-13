@@ -1,7 +1,18 @@
 //For Shop.php
+
+.title{
+    display: inline-block;
+}
+
+.searchBar{
+    display: inline-block;
+    text-size: 16px;
+}
+
+
 #gameList {
   display: block;
-  font-family: sans-serif;
+  font-family: 'PT sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow: auto;
   width: auto;
@@ -66,12 +77,14 @@
  .confirm_buy td {
      padding: 10px;
      font-size: 16 px;
+     font-family: 'PT Sans', sans-serif;
      
  }
  
  .confirmbtn {
      padding:25px 10px 50px 10px;
      display:inline-block;
+     font-family: 'PT Sans', sans-serif;
  }
  
  .confirm_btn {
@@ -80,11 +93,13 @@
      color: #fff;
      background: #63C05D;
      outline: 0px none;
+     font-family: 'PT Sans', sans-serif;
  }
  
  .cancelbtn {
      display: inline-block;
      padding: 25px 10px 50px 10px;
+     font-family: 'PT Sans', sans-serif;
  }
  
  .back_btn {
@@ -93,4 +108,5 @@
      color: #fff;
      background: #D50606;
      outline: 0px none;
+     font-family: 'PT Sans', sans-serif;
  }
