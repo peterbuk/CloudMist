@@ -33,7 +33,6 @@
         }
     }
     else {
-        $msg = $_POST['name'].$_POST['price'].$_POST['description'].$_POST['genre'].$_POST['patch_version'];
     }
     
 ?>
@@ -83,7 +82,7 @@
                             <td style="min-width: 90px"> Price($) </td>
                             <td style="min-width: 90px"><input type="number" class="form-field" name="price" step=0.01 value=0.00></td>
                             <td style="min-width: 50px"> Release Date </td>
-                            <td style="min-width: 90px"> <input type="text" id="datepicker" name="release_date"</td>
+                            <td style="min-width: 90px"> <input type="date" id="datepicker" name="release_date"</td>
                         </tr>
                         <tr>
                             <td> Description </td>
