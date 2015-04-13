@@ -1,0 +1,5 @@
+TO DO LIST for DEMO
+
+Gamer
+----
+- Validate creditcard and address information
