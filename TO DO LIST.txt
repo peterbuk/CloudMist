@@ -3,14 +3,14 @@ TO DO LIST for DEMO
 - serious sample data, at least 10 games
 - add more gradient backgrounds?
 - separate the login pages
+
+- Add sidebar for reviewer with logout script
+- Align update buttons on profile
+- Align add button on friend page
+- Provide more informative error messages on profile page
+
 Gamer
 ----
-- Validate creditcard and address information
+- Validate creditcard (MasterCard, Visa, etc..)
 - Search functionality
 
-Michael
-----
-- I already have a creditcard is numeric check in place. 
-- Not sure how to check for a valid address. 
-- I need to go through other stuff with you guys. Such as minimum password length.
-- I also plan to change how the friend list looks. 

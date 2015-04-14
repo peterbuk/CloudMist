@@ -9,7 +9,7 @@
         
         echo '<p>Fields cannot be blank.</p>'
              .'<h3>Change Password</h3>'
-             .'<p>Password has to be at least 5 characters long.</p>'
+             .'<p>Password has to be at least 6 characters long.</p>'
              .'<form method="post" action="profile.php" >'
                 .'<table class="form-field" border="0" >'
                     .'<tr>'
@@ -87,7 +87,7 @@
                 $ccChange = $_POST['cc_change'];
                 $adrsChange = $_POST['adrs_change']; 
                 
-                if(is_numeric($ccChange) && strlen($ccChange) > 16)
+                if(is_numeric($ccChange) && strlen($ccChange) == 16)
                 {
                     $query = "SELECT credit_card, billing_address FROM payment_info WHERE g_user='$user'";
                     $result = mysqli_query($conn, $query);

@@ -38,7 +38,7 @@
                 }
             }
             else {
-                $msg = "Error: Password must be greater than 5 characters.";
+                $msg = "Error: Password has to be at least 6 characters long.";
             }
         }
         else {
@@ -69,7 +69,7 @@
         
         <div class="mid-content">
             <h1>Please fill in the following information.</h1>
-            <p>Password has to be at least 5 characters long.</p>
+            <p>Password has to be at least 6 characters long.</p>
 
             <form method="post" action="register_comp.php">
                 <table class="form-field">
