@@ -1,7 +1,8 @@
 TO DO LIST for DEMO
 
 - serious sample data, at least 10 games
-
+- add more gradient backgrounds?
+- separate the login pages
 Gamer
 ----
 - Validate creditcard and address information

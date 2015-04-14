@@ -31,14 +31,14 @@
         }
         else {
             session_destroy();
-            header('Location: login_error.php');
+            header('Location: company_login.php');
         }
     }   // already logged on
     else if (isset($_SESSION['c_name'])) {        
     }
     else {
         session_destroy();
-        header('Location: login_error.php');
+        header('Location: company_login.php');
     }
 
 ?>
