@@ -16,7 +16,6 @@
             echo '<table id="gameList"><tr>'
                     . '<th>NAME</th>'
                     . '<th>DESCRIPTION</th>'
-                    . '<th>PRICE</th>'
                     . '<th>GENRE</th>'
                     . '<th>RELEASE DATE</th>'
                     . '<th>DOWNLOADS</th>'
@@ -26,7 +25,6 @@
             while($row = $result -> fetch_assoc()) {
                 echo "<tr><td>".$row["name"]."</td>"
                        . "<td>".$row["description"]."</td>"
-                       . "<td>".$row["price"]."</td>"
                        . "<td>".$row["genre"]."</td>"
                        . "<td>".$row["release_date"]."</td>"
                        . "<td><a href='#'> Download </a></td></tr>";
