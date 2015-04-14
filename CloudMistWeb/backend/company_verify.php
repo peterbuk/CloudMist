@@ -18,8 +18,16 @@
         $result = mysqli_query($conn, $query);
         
         if ($result->num_rows == 1) {
-            // login successful, set gamer session username
-            $_SESSION['c_name'] = $username;
+            // check if company is approved yet
+            $row = $result -> fetch_assoc();
+            
+            if ($row['status'] == "Pending") {
+                session_destroy();
+                header('Location: company_pending.php');
+            } else {
+                // login successful, set gamer session username
+                $_SESSION['c_name'] = $username;
+            }
         }
         else {
             session_destroy();
