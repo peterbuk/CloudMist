@@ -7,21 +7,21 @@
     {          
         require '../backend/connect.php';
         $user = ($_SESSION['g_user']); 
-        echo "<h3>Friends</h3>";
         $query = "SELECT f2_user FROM friend_of WHERE f1_user='$user'";
         $result = mysqli_query($conn, $query);
 
         if($result->num_rows > 0)
         {
-            echo "<p>";
+            echo '<table id="gameList"><tr>'
+                    . '<th>Friends</th>'
+                . '</tr>';
             
             while($row = $result -> fetch_assoc())
             {
-                echo $row["f2_user"]."</br>";
+                echo "<tr><td>".$row["f2_user"]."</td></tr>";
             }
 
-            echo "</p>";
-            echo "</br>";
+            echo "</table></br>";
         }
         else
         {
@@ -32,13 +32,13 @@
 
         echo '<form method="post" action="friends.php" >'
                 .'<h3>Add Friend</h3>'
-                .'<table border="0" >'
+                .'<table class="form-field" border="0" >'
                     .'<tr>'
                         .'<td><p><b>Name</b></p></td>'
                         .'<td><input type="text" name="add_friend"></td>'
                     .'</tr>'
                     .'<tr>'
-                        .'<td><br/><input type="submit" value="Add"/></td>'
+                        .'<td><input type="submit" value="Add"/></td>'
                     .'</tr>'
                 .'</table>'
             .'</form>';
@@ -67,7 +67,7 @@
                         .'Friend UPDATE Error!!';
                     }
                     
-                    header("Refresh: 0");
+                    header("Refresh: 3");
                 }
                 else
                 {
@@ -83,6 +83,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="../css/stylesheet.css">
+<link rel='stylesheet' href='../css/shopstyle.css'>
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' 
       rel='stylesheet' type='text/css'>
 
@@ -114,7 +115,7 @@
         
         <div id="content">
             <h1>FRIENDS</h1>
-            <?php getFriends() ?>
+            <?php getFriends(); ?>
         </div>
     </div>
 </body>
