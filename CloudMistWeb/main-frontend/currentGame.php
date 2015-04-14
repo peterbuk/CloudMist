@@ -12,7 +12,7 @@ function currentGameDiv() {
     require '../backend/connect.php';    
 
     $game_id = filter_input(INPUT_GET, 'game_id');
-    $sql_request = "SELECT name, price, description, release_date, genre, on_sale, game_data, c_name, patch_version FROM game WHERE game_id=".$game_id;
+    $sql_request = "SELECT name, price, description, release_date, genre, game_data, c_name, patch_version FROM game WHERE game_id=".$game_id;
     $result = mysqli_query($conn, $sql_request);
     if($result->num_rows == 1) {
         $row = $result -> fetch_assoc();
@@ -30,8 +30,6 @@ function currentGameDiv() {
                 . "<td>".$row["genre"]."</td></tr>"
                 . "<tr><td>Release Date:</td>"
                 . "<td>".$row["release_date"]."</td></tr>"
-                . "<tr><td>On Sale:</td>"
-                . "<td>".$row["on_sale"]."</td></tr>"
                 . "<tr><td>Company Name: </td>"
                 . "<td>".$row["c_name"]."</td></tr>"
                 . "</table>";
