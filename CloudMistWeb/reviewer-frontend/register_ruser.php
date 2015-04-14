@@ -14,7 +14,7 @@
                 
                 // check that username doesn't already exist
                 $username_check_q = "SELECT * "
-                        . "FROM reviewer "
+                        . "FROM game_reviewer "
                         . "WHERE r_user='$r_user'";
                 $result = mysqli_query($conn, $username_check_q);
                 
