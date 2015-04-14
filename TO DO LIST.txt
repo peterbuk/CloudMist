@@ -1,5 +1,8 @@
 TO DO LIST for DEMO
 
+- serious sample data, at least 10 games
+
 Gamer
 ----
 - Validate creditcard and address information
+- Search functionality
