@@ -1,0 +1,7 @@
+# CloudMist Bug List
+
+Subject: Release Date Not Set	
+Description: When a company is adding a game, after entering in all fields and submitting the game, the release date is not set to the specified date.
+File Path: /company-frontend/company_add.php
+
+ 
