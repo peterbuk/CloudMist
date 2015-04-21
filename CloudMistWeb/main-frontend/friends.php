@@ -42,41 +42,47 @@
                     .'</tr>'
                 .'</table>'
             .'</form>';
+    }
+    
+    // post request to add new friend
+    if (isset($_POST['add_friend']))
+    {
+        $addFriend = $_POST['add_friend'];
         
-        if (!empty($_POST['add_friend']))
+        // check that gamer isn't adding themselves
+        if( $addFriend != $user)
         {
-            if(isset($_POST['add_friend']) && $_POST['add_friend'] != $user)
+            // check that gamer hasn't already added this friend
+            $dup_friend_q = "SELECT * "
+                    . "FROM friend_of "
+                    . "WHERE f1_user='$user' "
+                    . "AND f2_user='$addFriend'";
+            $dup_friend = mysqli_query($conn, $dup_friend_q);
+
+            if($dup_friend -> num_rows == 0)
             {
-                $addFriend = $_POST['add_friend'];
-                $query = "SELECT f1_user FROM friend_of WHERE f1_user='$addFriend'";
+                $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
                 $result = mysqli_query($conn, $query);
 
-                if($result->num_rows != 0)
+                if ($result)
                 {
-                    $query = "INSERT INTO friend_of VALUES ('$user', '$addFriend')";  
-                    $result = mysqli_query($conn, $query);
-                    
-                    if ($result)
-                    {
-                        echo '</br>'
-                        .'Success!';
-                    }
-                    else
-                    {
-                        echo '</br>'
-                        .'Friend UPDATE Error!!';
-                    }
-                    
-                    header("Refresh: 3");
+                    $msg = "Success! ".$addFriend." has been added.";
                 }
                 else
                 {
-                    echo '</br>'
-                        .'Add friend failed.';
+                    $msg = "The user ". $addFriend ." does not exist!";
                 }
             }
+            else
+            {
+                $msg = "You already have this friend added.";
+            }
         }
-    }		
+        else 
+        {
+            $msg = "You cannot friend yourself as much as you want to.";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +121,10 @@
         
         <div id="content">
             <h1>FRIENDS</h1>
-            <?php getFriends(); ?>
+            <?php getFriends(); 
+            
+                if (isset($msg))
+                    echo "<p>".$msg."</p>";?>
         </div>
     </div>
 </body>
