@@ -52,7 +52,8 @@ Gamer:
 
 Company:
  1) Login
-	- we already demonstrated register for gamer so just log in with existing company
+	- Add a new company, then attempt to login but fail due to pending
+	- Login to existing company "Valve"
 
  2) Add Game
 	- Add a new game with any type of values.
