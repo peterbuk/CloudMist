@@ -46,13 +46,13 @@ INSERT INTO company VALUES ("Boom Games",
 							"123456",
 							"Canada",
 							"collier",
-							"Pending");
+							"Approved");
 							
 INSERT INTO company VALUES ("MiSoNi",
 							"123456",
 							"Antarctica",
 							"collier",
-							"Pending");
+							"Approved");
 							
 INSERT INTO company VALUES ("IamIndie",
 							"123456",

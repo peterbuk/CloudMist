@@ -1,7 +1,20 @@
 # CloudMist Bug List
 
-Subject: Company release date not set	
-Description: When a company is adding a game, after entering in all fields and submitting the game, the release date is not set to the specified date.
-File Path: /company-frontend/company_add.php
+Bug: Company add game lacks error messages
+Description: When a company tries to submit a game without filling in all fields, no error messages are shown
+File: company_add.php
 
- 
+Bug: Company patch game does not update game
+Description: We have no way of testing whether the patch game actually works or not because we could not get the file IO working.
+File: company_patch.php
+
+Bug: Session expires when working with multiple instances
+Description: When working with multiple instances, say an admin tab and a user tab, the session can expire for all of them. This shouldn't be an issue because in normal usage, you should only expect one session per computer.
+File: all logins
+
+Bug: Company can still login after being banned
+Description: See title
+File: company_login.php
+
+Bug: Admin news items aren't posted sometimes
+Description: Some news items fail to get posted for some reason. The reason is still unknown and has nothing to do with length.

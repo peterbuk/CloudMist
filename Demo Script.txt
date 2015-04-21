@@ -85,7 +85,7 @@ Admin:
 	- Go to News Blog
 	
  4) News Blog
-	- Enter a new post, we can show this works by logging into gamer later if we have time. *
+	- Enter a new post, we can show this works by logging into gamer later if we have time.
 
 
 
