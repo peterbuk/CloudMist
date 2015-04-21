@@ -57,6 +57,11 @@
 <link rel="stylesheet" href="../css/reviewerstyle.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <head>
+    <script>
+        function logoffjs() {
+            location.href = "reviewer_login.php";
+        }
+    </script>
 </head>
 
 <body>
@@ -84,8 +89,14 @@
                 </select>
                 </div>
                 <textarea class="form-field" name="content" rows="9" cols="75" placeholder="Please enter the review"></textarea>
-                <input class="form-field" type="submit" value="  Submit  ">
+                <div>
+                    <input class="form-field" type="submit" value="  Submit  ">
+                </div>
+                <div style="padding-top: 10px;">
+                    <input type="button" value="Log Out" onclick=logoffjs()>
+                </div>
             </form>
+
 	</div>
     
         <p> <?php 
