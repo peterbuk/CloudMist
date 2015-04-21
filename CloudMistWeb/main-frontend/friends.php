@@ -50,7 +50,7 @@
         $addFriend = $_POST['add_friend'];
         
         // check that gamer isn't adding themselves
-        if( $addFriend != $user)
+        if( strtolower(trim($addFriend)) != strtolower(trim($user)))
         {
             // check that gamer hasn't already added this friend
             $dup_friend_q = "SELECT * "
