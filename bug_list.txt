@@ -8,6 +8,10 @@ Bug: Company patch game does not update game
 Description: We have no way of testing whether the patch game actually works or not because we could not get the file IO working.
 File: company_patch.php
 
+Bug: Game list cannot download games
+Description: You cannot currently download games from the game list. We could not get file IO working.
+File: gamelist.php
+
 Bug: Session expires when working with multiple instances
 Description: When working with multiple instances, say an admin tab and a user tab, the session can expire for all of them. This shouldn't be an issue because in normal usage, you should only expect one session per computer.
 File: all logins
@@ -18,3 +22,8 @@ File: company_login.php
 
 Bug: Admin news items aren't posted sometimes
 Description: Some news items fail to get posted for some reason. The reason is still unknown and has nothing to do with length.
+File: admin_news.php
+
+Bug: Cannot delete friends
+Description: You cannot delete the friends you add. Likely because we don't do anything with friends in the first place.
+File: friends.php
