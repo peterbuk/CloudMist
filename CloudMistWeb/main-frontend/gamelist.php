@@ -32,7 +32,7 @@
             echo "</table>";
         }
         else {
-            echo "0 results";
+            echo "<p>Unfortunately, you don't own any games yet.</p>";
         }
         //$link->close();
     }

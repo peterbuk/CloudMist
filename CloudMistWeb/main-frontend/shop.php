@@ -13,7 +13,9 @@ CPSC471
                 $search_query = "SELECT game_id, name, price, genre, release_date FROM game "
                         . "WHERE game_id LIKE '%$searchText%'"
                         . "OR name LIKE '%$searchText%'"
-                        . "OR genre LIKE '%$searchText%'";
+                        . "OR genre LIKE '%$searchText%'"
+                        . "OR price LIKE '%$searchText%'"
+                        . "OR release_date LIKE '%$searchText%'";
                 $result = mysqli_query($conn, $search_query);
 
                 if($result -> num_rows> 0) {
@@ -42,7 +44,7 @@ CPSC471
 
                 }
                 else {
-                    echo "0 results";
+                    echo "<p> Your search request ".$searchText." did not match any results</p>";
                 }
 
             }
@@ -86,7 +88,7 @@ CPSC471
             
         }
         else {
-            echo "0 results";
+            echo "0 games in the database.";
         }
 
         

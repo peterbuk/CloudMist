@@ -1,0 +1,116 @@
+Demo Script
+
+Preparations:
+ - Have 4 different sessions of the website running, one on each of the different login pages
+   Edit: Nvm we now have a page linked to all logins.
+ - Know your screen's functionality so you can explain what it does.
+
+Intro:
+- Introduce names. We made an online game catalogue, Cloud/Mist. We have 4 users, gamers, companies, admins and reviewers.
+Gamers can buy/browse games, friend people and change their personal info
+Companies can add/patch games and view sale statistics.
+Admins can ban users, approve/ban companies, and blog news posts.
+Reviewers can write a review for a game.
+
+Gamer:
+ 1) Login Screen/Register
+    - Go to register and register a new user.
+    - Try to log in with an invalid username which shows the login failed page.
+	- Login using the user we have just created.
+	
+ 2) Home Page
+	- Explain that the posts on the home page are written by admins
+	- Go to profile
+
+ 3) Profile 
+	- Demonstrate changing password
+	    - Option 1: Enter wrong "current password"
+		- Option 2: Enter different values for "new password" and "retype password"
+		- Option 3: just do the correct way
+	- Correctly change the password to something else (234567)
+	- Enter in new payment info
+	- Go to Game List
+	
+ 4) Game List
+	- Show that there are no games owned yet.
+	- Go to Shop
+	
+ 5) Shop
+	- Demonstrate the search functionality.
+	- Click "More Info" for a game
+	- Explain the reviews are written by game reviewers
+	- Click "Buy Game"
+	- Click "Buy Game" again. Alternative can click "Cancel"
+	- Go to Game List to show that game has been added to list
+	- Go back to shop and try to add the same game. But it won't work
+	- Go to Friends
+ 
+ 6) Friends
+	- Add some friends, try invalid and valid ones.
+	
+ 7) Logout of system
+
+Company:
+ 1) Login
+	- we already demonstrated register for gamer so just log in with existing company
+
+ 2) Add Game
+	- Add a new game with any type of values.
+	  We can look at the game through gamer later if we have time. *
+	- Go to Patch Game
+	
+ 3) Patch Game
+	- Explain that they can update the version number and update using file
+	- Demonstrate it if they ask
+	- Go to sales
+
+ 4) Sales
+	- Explain how we got the sales, count how many people bought the game and multiply price.
+	
+ 5) Logout
+
+Admin:
+ 1) Login
+	- Same stuff
+
+ 2) User Management
+	- Ban an existing user. We can show that they're banned now or later by trying to log in
+	- Go to Company Status
+	
+ 3) Company Status
+	- Explain it works the same way as User Management does, except companies have to be
+	approved before their games show up.
+	- Approve a company or ban them.
+	- Go to News Blog
+	
+ 4) News Blog
+	- Enter a new post, we can show this works by logging into gamer later if we have time. *
+
+
+
+Reviewer:
+ 1) Login
+	- Same stuff
+
+ 2) Review
+	- Submit a new review for the game we added in company. 
+	  We can look at it through gamer later on if we want/have time. *
+	
+ 3) Logout
+ 
+ 
+ 
+* OPTIONAL: IF WE HAVE TIME AT THE END.
+ Login as a gamer:
+  - Show that the news post we created shows up.
+  - Show that the game we added shows up. Also games from new company that is approved.
+  - Show that review we added for a game shows up.
+
+  
+  
+  
+SQL Statements
+ - Show the gamelist SQL statement.
+ - Show search SQL statement in Shop.
+ - Show any other SQL statements. 
+ 
