@@ -55,10 +55,10 @@
     <div id="sidebar">
         <div class="logo_title">Cloud Mist</div>
         <ul id="sideButton">
-            <li><a href="company_add.php">ADD GAME</a></li>
-            <li><a href="company_patch.php">PATCH GAME</a></li>
-            <li><a href="company_sales.php">SALES</a></li>
-            <li><a href="company_login.php">LOGOFF</a></li>
+            <a href="company_add.php"><li>ADD GAME</li></a>
+            <a href="company_patch.php"><li>PATCH GAME</li></a>
+            <a href="company_sales.php"><li>SALES</li></a>
+            <a href="company_login.php"><li id="logoff">LOGOFF</li></a>
         </ul>
     </div>
     

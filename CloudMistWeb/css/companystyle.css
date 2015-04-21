@@ -112,10 +112,6 @@ a{
     line-height: 60px;
 }
 
-#sideButton li:hover {
-    background-color:#fff;
-}
-
 #sideButton li a{
     text-decoration:none;
 }
