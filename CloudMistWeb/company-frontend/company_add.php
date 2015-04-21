@@ -7,11 +7,16 @@
         $name = $_POST['name'];
         $price = $_POST['price'];
         $description = $_POST['description'];
-        $release_date = $_POST['release_date'];
+        $r_date = $_POST['release_date'];
         $genre = $_POST['genre'];
         $game_data = $_POST['game_data'];
         $patch_version = $_POST['patch_version'];
         $c_name = $_SESSION['c_name'];
+        
+        //convert release date
+        $temp_date = explode("/", $r_date);
+        $release_date = $temp_date[2] . "-" . $temp_date[0] . "-" . $temp_date[1];
+        
     
         //check for non-empty content
         if (!empty($name) && !empty($price) && !empty($description) && !empty($release_date) && !empty($genre)
@@ -84,7 +89,7 @@
                             <td style="min-width: 90px"> Price($) </td>
                             <td style="min-width: 90px"><input type="number" class="form-field" name="price" step=0.01 value=0.00></td>
                             <td style="min-width: 50px"> Release Date </td>
-                            <td style="min-width: 90px"> <input type="date" id="datepicker" name="release_date" class="form-field"></td>
+                            <td style="min-width: 90px"> <input type="text" id="datepicker" name="release_date" class="form-field"></td>
                         </tr>
                         <tr>
                             <td> Description </td>
