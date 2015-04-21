@@ -16,10 +16,6 @@ Bug: Session expires when working with multiple instances
 Description: When working with multiple instances, say an admin tab and a user tab, the session can expire for all of them. This shouldn't be an issue because in normal usage, you should only expect one session per computer.
 File: all logins
 
-Bug: Company can still login after being banned
-Description: See title
-File: company_login.php
-
 Bug: Admin news items aren't posted sometimes
 Description: Some news items fail to get posted for some reason. The reason is still unknown and has nothing to do with length.
 File: admin_news.php
@@ -27,3 +23,7 @@ File: admin_news.php
 Bug: Cannot delete friends
 Description: You cannot delete the friends you add. Likely because we don't do anything with friends in the first place.
 File: friends.php
+
+Bug: Case sensitivity not considered
+Description: Case sensitivity is not considered in any username or password field.
+File: all login pages
