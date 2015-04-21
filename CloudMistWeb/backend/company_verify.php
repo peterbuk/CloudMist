@@ -13,7 +13,8 @@
         $query = "SELECT * "
                 . "FROM company "
                 . "WHERE c_name='$username' "
-                . "AND password='$password'";
+                . "AND password='$password'"
+                . "AND status!='Banned'";
         
         $result = mysqli_query($conn, $query);
         
