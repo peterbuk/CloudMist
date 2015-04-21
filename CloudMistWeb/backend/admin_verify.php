@@ -6,8 +6,8 @@
     
     // check that form items are submitted
     if ((isset($_POST['a_user']) && isset($_POST['password']))) {
-        $username = $_POST['a_user'];
-        $password = $_POST['password'];
+        $username = trim($_POST['a_user']);
+        $password = trim($_POST['password']);
         
         // check if credentials are in db
         $query = "SELECT * "

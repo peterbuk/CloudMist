@@ -3,9 +3,9 @@
 
     // check if fields are posted
     if (isset($_POST['c_name']) && isset($_POST['password']) && isset($_POST['location'])) {
-        $c_name = $_POST['c_name'];
-        $password = $_POST['password'];
-        $location = $_POST['location'];
+        $c_name = trim($_POST['c_name']);
+        $password = trim($_POST['password']);
+        $location = trim($_POST['location']);
         $status = "Pending";
         
         // check for non-empty

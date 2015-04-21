@@ -3,8 +3,8 @@
 
     // check if fields are posted
     if (isset($_POST['r_user']) && isset($_POST['password'])) {
-        $r_user = $_POST['r_user'];
-        $password = $_POST['password'];
+        $r_user = trim($_POST['r_user']);
+        $password = trim($_POST['password']);
         
         // check for non-empty
         if (!empty($r_user) && !empty($password)) {

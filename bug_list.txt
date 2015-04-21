@@ -27,3 +27,7 @@ File: friends.php
 Bug: Case sensitivity not considered
 Description: Case sensitivity is not considered in any username or password field.
 File: all login pages
+
+Bug: Leading and trailing spaces are ignored in fields
+Description: All username and password fields get trimmed so adding spaces will do nothing
+File: All login and register pages, profile.php

@@ -53,9 +53,9 @@
     {
         if (!empty($_POST['cur_password']) && !empty($_POST['new_password']) && !empty($_POST['con_password']))
         {
-            $curPassword = $_POST['cur_password'];
-            $newPassword = $_POST['new_password'];
-            $conPassword = $_POST['con_password'];
+            $curPassword = trim($_POST['cur_password']);
+            $newPassword = trim($_POST['new_password']);
+            $conPassword = trim($_POST['con_password']);
 
             $verify_q = "SELECT * FROM gamer WHERE password='$curPassword' AND g_user='$user'";
             $verify = mysqli_query($conn, $verify_q);
@@ -99,8 +99,8 @@
     if (isset($_POST['payment']) && isset($_POST['cc_change']) && isset($_POST['adrs_change']))
     {
         if (!empty($_POST['cc_change']) && !empty($_POST['adrs_change'])) {
-            $ccChange = $_POST['cc_change'];
-            $adrsChange = $_POST['adrs_change']; 
+            $ccChange = trim($_POST['cc_change']);
+            $adrsChange = trim($_POST['adrs_change']); 
 
             // make sure credit card # is valid
             if(is_numeric($ccChange) && strlen($ccChange) == 16)
