@@ -360,12 +360,6 @@ INSERT INTO review VALUES ( default,
 							"gamestop");
 							
 INSERT INTO review VALUES ( default,
-							"I feel like I've played this game before. Must be nostalgia",
-							9,
-							1,
-							"gamestop");
-							
-INSERT INTO review VALUES ( default,
 							"NINTENDO PLS THIS GAME IS SUCH A RIPOFF! I WANT MY MONEY BACK",
 							1,
 							1,
