@@ -23,7 +23,7 @@
         }
         else {
             session_destroy();
-            header('Location: login_error.php');
+            header('Location: reviewer_login_error.php');
         }
     }
     else if(isset($_SESSION['username'])){
@@ -31,7 +31,7 @@
     }
     else {
         session_destroy();
-        header('Location: login_error.php');
+        header('Location: reviewer_login_error.php');
     }
 
 ?>

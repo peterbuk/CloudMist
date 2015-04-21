@@ -1,5 +1,5 @@
 <?php
-    // This script checks the gamer login credentials
+    // This script checks the company login credentials
     
     session_start();
     require_once 'connect.php';
@@ -25,20 +25,20 @@
                 session_destroy();
                 header('Location: company_pending.php');
             } else {
-                // login successful, set gamer session username
+                // login successful, set company session username
                 $_SESSION['c_name'] = $username;
             }
         }
         else {
             session_destroy();
-            header('Location: company_login.php');
+            header('Location: company_login_error.php');
         }
     }   // already logged on
     else if (isset($_SESSION['c_name'])) {        
     }
     else {
         session_destroy();
-        header('Location: company_login.php');
+        header('Location: company_login_error.php');
     }
 
 ?>
