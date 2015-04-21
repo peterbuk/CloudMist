@@ -16,7 +16,7 @@
           rel='stylesheet' type='text/css'>
     <script>
         function gamer() {
-            location.href = "register_guser.php";
+            location.href = "login.php";
         }
         function reviewer() {
             location.href= "../reviewer-frontend/reviewer_login.php";
