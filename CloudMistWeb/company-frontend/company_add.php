@@ -41,8 +41,10 @@
 <html>
 <link rel="stylesheet" href="../css/companystyle.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(function() {
@@ -82,7 +84,7 @@
                             <td style="min-width: 90px"> Price($) </td>
                             <td style="min-width: 90px"><input type="number" class="form-field" name="price" step=0.01 value=0.00></td>
                             <td style="min-width: 50px"> Release Date </td>
-                            <td style="min-width: 90px"> <input type="date" id="datepicker" name="release_date"</td>
+                            <td style="min-width: 90px"> <input type="date" id="datepicker" name="release_date" class="form-field"></td>
                         </tr>
                         <tr>
                             <td> Description </td>
