@@ -1,16 +1,5 @@
 TO DO LIST for DEMO
 
-- serious sample data, at least 10 games
-- add more gradient backgrounds?
-- separate the login pages
 
-- Add sidebar for reviewer with logout script —> done
-- Align update buttons on profile
-- Align add button on friend page
-- Provide more informative error messages on profile page
 
-Gamer
-----
-- Validate creditcard (MasterCard, Visa, etc..)
-- Search functionality
 
